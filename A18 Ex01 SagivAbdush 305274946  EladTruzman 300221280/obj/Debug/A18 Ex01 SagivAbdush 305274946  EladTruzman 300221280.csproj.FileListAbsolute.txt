@@ -1,0 +1,8 @@
+c:\users\elad\source\repos\A18 Ex01 Sagiv 305274946 Elad 300221280\A18 Ex01 SagivAbdush 305274946  EladTruzman 300221280\bin\Debug\A18 Ex01 SagivAbdush 305274946  EladTruzman 300221280.exe
+c:\users\elad\source\repos\A18 Ex01 Sagiv 305274946 Elad 300221280\A18 Ex01 SagivAbdush 305274946  EladTruzman 300221280\bin\Debug\A18 Ex01 SagivAbdush 305274946  EladTruzman 300221280.pdb
+c:\users\elad\source\repos\A18 Ex01 Sagiv 305274946 Elad 300221280\A18 Ex01 SagivAbdush 305274946  EladTruzman 300221280\obj\Debug\A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280.Form1.resources
+c:\users\elad\source\repos\A18 Ex01 Sagiv 305274946 Elad 300221280\A18 Ex01 SagivAbdush 305274946  EladTruzman 300221280\obj\Debug\A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280.Properties.Resources.resources
+c:\users\elad\source\repos\A18 Ex01 Sagiv 305274946 Elad 300221280\A18 Ex01 SagivAbdush 305274946  EladTruzman 300221280\obj\Debug\A18 Ex01 SagivAbdush 305274946  EladTruzman 300221280.csproj.GenerateResource.Cache
+c:\users\elad\source\repos\A18 Ex01 Sagiv 305274946 Elad 300221280\A18 Ex01 SagivAbdush 305274946  EladTruzman 300221280\obj\Debug\A18 Ex01 SagivAbdush 305274946  EladTruzman 300221280.csproj.CoreCompileInputs.cache
+c:\users\elad\source\repos\A18 Ex01 Sagiv 305274946 Elad 300221280\A18 Ex01 SagivAbdush 305274946  EladTruzman 300221280\obj\Debug\A18 Ex01 SagivAbdush 305274946  EladTruzman 300221280.exe
+c:\users\elad\source\repos\A18 Ex01 Sagiv 305274946 Elad 300221280\A18 Ex01 SagivAbdush 305274946  EladTruzman 300221280\obj\Debug\A18 Ex01 SagivAbdush 305274946  EladTruzman 300221280.pdb
