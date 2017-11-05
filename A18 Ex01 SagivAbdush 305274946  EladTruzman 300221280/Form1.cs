@@ -13,7 +13,7 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280
 {
     public partial class Form1 : Form
     {
-        public enum E_TabType { music = 1, television, movies, books };
+        public enum E_TabType { music = 1, television, movies, books, friends };
 
 
         public Form1()
@@ -26,36 +26,45 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280
         private void fillTabs()
         {
             FacebookObjectCollection<Page> music = FacebookService.GetCollection<Page>(E_TabType.music.ToString());
-            dynamic actionsData = FacebookService.GetDynamicData(E_TabType.music.ToString());
+            dynamic actionsDataMusic = FacebookService.GetDynamicData(E_TabType.music.ToString());
             dataGridViewMusic.DataSource = music;
 
             for(int i = 7 ; i < dataGridViewMusic.Columns.Count; i++)
             {
                 dataGridViewMusic.Columns[i].Visible = false;
             }
-           
 
+            FacebookObjectCollection<Page> books = FacebookService.GetCollection<Page>(E_TabType.books.ToString());
+            dynamic actionsDataBooks = FacebookService.GetDynamicData(E_TabType.books.ToString());
+            dataGridViewBooks.DataSource = books;
 
-            // m_LoggedInUser = result.LoggedInUser;
-
-
-            //if (m_LoggedInUser.FriendLists.Count > 0)
+            //for (int i = 7; i < dataGridViewBooks.Columns.Count; i++)
             //{
-            //    for(int i =0;i< m_LoggedInUser.FriendLists.Count;i++)
-            //    {
-            //        string rr = m_LoggedInUser.FriendLists[0].Name;
-            //    }
-            //    // textBoxLatestPost.Text = m_LoggedInUser.Posts[0].Message;
+            //    dataGridViewBooks.Columns[i].Visible = false;
             //}
 
-            //            FB.api(
-            //    '/me',
-            //    'GET',
-            //  { "fields":"friends{name,tagged_places{place}}"},
-            //  function(response) {
-            //                // Insert your code here
-            //            }
-            //);
+            FacebookObjectCollection<Page> movies = FacebookService.GetCollection<Page>(E_TabType.movies.ToString());
+            dynamic actionsDataMovies = FacebookService.GetDynamicData(E_TabType.movies.ToString());
+            dataGridViewMovies.DataSource = movies;
+
+            //for (int i = 7; i < dataGridViewMovies.Columns.Count; i++)
+            //{
+            //    dataGridViewMovies.Columns[i].Visible = false;
+            //}
+
+            FacebookObjectCollection<Page> friends = FacebookService.GetCollection<Page>(E_TabType.friends.ToString());
+            dynamic actionsDataFriends = FacebookService.GetDynamicData(E_TabType.friends.ToString());
+            dataGridViewFriends.DataSource = friends;
+
+            //for (int i = 7; i < dataGridViewFriends.Columns.Count; i++)
+            //{
+            //    dataGridViewFriends.Columns[i].Visible = false;
+            //}
+
+      
+           
+
+          
             // string ff = "i_Fields:friends{name,tagged_places{place}";
             // FacebookObjectCollection<User> friends = FacebookService.GetCollection<User>(ff);
 
@@ -81,6 +90,8 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280
         {
             
             userImageProfile.LoadAsync(UserSingleTonSession.Instance.m_LoggedInUser.PictureNormalURL);
+            btnPostPublish.Enabled = true;
+            textBoxPostPublish.Enabled = true;
             lblUserFirstName.Text = UserSingleTonSession.Instance.m_LoggedInUser.FirstName;
             lblUserLastName.Text = UserSingleTonSession.Instance.m_LoggedInUser.LastName;
             lblUserBirthDate.Text = UserSingleTonSession.Instance.m_LoggedInUser.Birthday;
@@ -140,6 +151,7 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280
         private void ResetForm()
         {
             userImageProfile.LoadAsync();
+            textBoxPostPublish.Enabled = false;
             lblUserFirstName.Text = string.Empty;
             lblUserLastName.Text = string.Empty;
             lblUserBirthDate.Text = string.Empty;
@@ -161,6 +173,7 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280
             lblUserGender.Visible = false;
             lblUserReligion.Visible = false;
             lblLatestPost.Visible = false;
+            btnPostPublish.Enabled = false;
             dataGridViewMusic.DataSource = null;
         }
 

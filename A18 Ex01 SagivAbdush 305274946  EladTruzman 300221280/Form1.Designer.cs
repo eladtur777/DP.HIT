@@ -31,9 +31,9 @@
             this.dataGridViewMusic = new System.Windows.Forms.DataGridView();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.MyBooks = new System.Windows.Forms.TabPage();
+            this.dataGridViewBooks = new System.Windows.Forms.DataGridView();
+            this.MyMovies = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.textBoxPostPublish = new System.Windows.Forms.TextBox();
@@ -55,14 +55,21 @@
             this.loginBtn = new System.Windows.Forms.PictureBox();
             this.label7 = new System.Windows.Forms.Label();
             this.lblLatestPost = new System.Windows.Forms.Label();
+            this.dataGridViewMovies = new System.Windows.Forms.DataGridView();
+            this.MyFriends = new System.Windows.Forms.TabPage();
+            this.dataGridViewFriends = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMusic)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            this.MyBooks.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBooks)).BeginInit();
+            this.MyMovies.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LogOutBtn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.userImageProfile)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.loginBtn)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMovies)).BeginInit();
+            this.MyFriends.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFriends)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridViewMusic
@@ -76,8 +83,9 @@
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Controls.Add(this.MyBooks);
+            this.tabControl1.Controls.Add(this.MyMovies);
+            this.tabControl1.Controls.Add(this.MyFriends);
             this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Controls.Add(this.tabPage5);
             this.tabControl1.Location = new System.Drawing.Point(-3, 229);
@@ -97,34 +105,35 @@
             this.tabPage1.Text = "MyMusic";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // tabPage2
+            // MyBooks
             // 
-            this.tabPage2.Controls.Add(this.dataGridView2);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(745, 256);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.MyBooks.Controls.Add(this.dataGridViewBooks);
+            this.MyBooks.Location = new System.Drawing.Point(4, 22);
+            this.MyBooks.Name = "MyBooks";
+            this.MyBooks.Padding = new System.Windows.Forms.Padding(3);
+            this.MyBooks.Size = new System.Drawing.Size(745, 256);
+            this.MyBooks.TabIndex = 1;
+            this.MyBooks.Text = "MyBooks";
+            this.MyBooks.UseVisualStyleBackColor = true;
             // 
-            // dataGridView2
+            // dataGridViewBooks
             // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(-4, 0);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(749, 258);
-            this.dataGridView2.TabIndex = 0;
+            this.dataGridViewBooks.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewBooks.Location = new System.Drawing.Point(-4, 0);
+            this.dataGridViewBooks.Name = "dataGridViewBooks";
+            this.dataGridViewBooks.Size = new System.Drawing.Size(749, 258);
+            this.dataGridViewBooks.TabIndex = 0;
             // 
-            // tabPage3
+            // MyMovies
             // 
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(745, 256);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "tabPage3";
-            this.tabPage3.UseVisualStyleBackColor = true;
+            this.MyMovies.Controls.Add(this.dataGridViewMovies);
+            this.MyMovies.Location = new System.Drawing.Point(4, 22);
+            this.MyMovies.Name = "MyMovies";
+            this.MyMovies.Padding = new System.Windows.Forms.Padding(3);
+            this.MyMovies.Size = new System.Drawing.Size(745, 256);
+            this.MyMovies.TabIndex = 2;
+            this.MyMovies.Text = "MyMovies";
+            this.MyMovies.UseVisualStyleBackColor = true;
             // 
             // tabPage4
             // 
@@ -148,7 +157,8 @@
             // 
             // textBoxPostPublish
             // 
-            this.textBoxPostPublish.Location = new System.Drawing.Point(349, 22);
+            this.textBoxPostPublish.Enabled = false;
+            this.textBoxPostPublish.Location = new System.Drawing.Point(351, 22);
             this.textBoxPostPublish.Name = "textBoxPostPublish";
             this.textBoxPostPublish.Size = new System.Drawing.Size(258, 20);
             this.textBoxPostPublish.TabIndex = 8;
@@ -156,6 +166,7 @@
             // btnPostPublish
             // 
             this.btnPostPublish.BackColor = System.Drawing.Color.SteelBlue;
+            this.btnPostPublish.Enabled = false;
             this.btnPostPublish.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPostPublish.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnPostPublish.Location = new System.Drawing.Point(258, 20);
@@ -355,6 +366,33 @@
             this.lblLatestPost.Text = "LatestPost";
             this.lblLatestPost.Visible = false;
             // 
+            // dataGridViewMovies
+            // 
+            this.dataGridViewMovies.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewMovies.Location = new System.Drawing.Point(0, 0);
+            this.dataGridViewMovies.Name = "dataGridViewMovies";
+            this.dataGridViewMovies.Size = new System.Drawing.Size(746, 253);
+            this.dataGridViewMovies.TabIndex = 0;
+            // 
+            // MyFriends
+            // 
+            this.MyFriends.Controls.Add(this.dataGridViewFriends);
+            this.MyFriends.Location = new System.Drawing.Point(4, 22);
+            this.MyFriends.Name = "MyFriends";
+            this.MyFriends.Padding = new System.Windows.Forms.Padding(3);
+            this.MyFriends.Size = new System.Drawing.Size(745, 256);
+            this.MyFriends.TabIndex = 5;
+            this.MyFriends.Text = "MyFriends";
+            this.MyFriends.UseVisualStyleBackColor = true;
+            // 
+            // dataGridViewFriends
+            // 
+            this.dataGridViewFriends.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewFriends.Location = new System.Drawing.Point(0, 0);
+            this.dataGridViewFriends.Name = "dataGridViewFriends";
+            this.dataGridViewFriends.Size = new System.Drawing.Size(746, 250);
+            this.dataGridViewFriends.TabIndex = 0;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -388,11 +426,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMusic)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
-            this.tabPage2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            this.MyBooks.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBooks)).EndInit();
+            this.MyMovies.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.LogOutBtn)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.userImageProfile)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.loginBtn)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMovies)).EndInit();
+            this.MyFriends.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFriends)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -402,9 +444,9 @@
         private System.Windows.Forms.DataGridView dataGridViewMusic;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.TabPage MyBooks;
+        private System.Windows.Forms.DataGridView dataGridViewBooks;
+        private System.Windows.Forms.TabPage MyMovies;
         private System.Windows.Forms.TextBox textBoxPostPublish;
         private System.Windows.Forms.Button btnPostPublish;
         private System.Windows.Forms.Label lblUserFirstName;
@@ -426,6 +468,9 @@
         private System.Windows.Forms.PictureBox LogOutBtn;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label lblLatestPost;
+        private System.Windows.Forms.DataGridView dataGridViewMovies;
+        private System.Windows.Forms.TabPage MyFriends;
+        private System.Windows.Forms.DataGridView dataGridViewFriends;
     }
 }
 
