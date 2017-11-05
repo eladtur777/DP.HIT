@@ -63,6 +63,16 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Custom_logOut {
+            get {
+                object obj = ResourceManager.GetObject("Custom-logOut", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap facebook_signBtn {
             get {
                 object obj = ResourceManager.GetObject("facebook-signBtn", resourceCulture);
@@ -76,6 +86,46 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280.Properties {
         internal static System.Drawing.Bitmap facebook_signBtn1 {
             get {
                 object obj = ResourceManager.GetObject("facebook-signBtn1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap logout {
+            get {
+                object obj = ResourceManager.GetObject("logout", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap logout_FB {
+            get {
+                object obj = ResourceManager.GetObject("logout_FB", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap logout1 {
+            get {
+                object obj = ResourceManager.GetObject("logout1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap logoutbutton {
+            get {
+                object obj = ResourceManager.GetObject("logoutbutton", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

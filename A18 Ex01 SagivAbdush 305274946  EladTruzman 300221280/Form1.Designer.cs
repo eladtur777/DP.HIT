@@ -148,7 +148,7 @@
             // 
             // textBoxPostPublish
             // 
-            this.textBoxPostPublish.Location = new System.Drawing.Point(349, 17);
+            this.textBoxPostPublish.Location = new System.Drawing.Point(349, 22);
             this.textBoxPostPublish.Name = "textBoxPostPublish";
             this.textBoxPostPublish.Size = new System.Drawing.Size(258, 20);
             this.textBoxPostPublish.TabIndex = 8;
@@ -158,7 +158,7 @@
             this.btnPostPublish.BackColor = System.Drawing.Color.SteelBlue;
             this.btnPostPublish.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPostPublish.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnPostPublish.Location = new System.Drawing.Point(258, 15);
+            this.btnPostPublish.Location = new System.Drawing.Point(258, 20);
             this.btnPostPublish.Name = "btnPostPublish";
             this.btnPostPublish.Size = new System.Drawing.Size(90, 25);
             this.btnPostPublish.TabIndex = 7;
@@ -334,9 +334,11 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(158, 166);
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label7.Location = new System.Drawing.Point(158, 210);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(63, 13);
+            this.label7.Size = new System.Drawing.Size(75, 13);
             this.label7.TabIndex = 25;
             this.label7.Text = "Latest Post:";
             this.label7.Visible = false;
@@ -344,9 +346,11 @@
             // lblLatestPost
             // 
             this.lblLatestPost.AutoSize = true;
-            this.lblLatestPost.Location = new System.Drawing.Point(220, 166);
+            this.lblLatestPost.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLatestPost.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lblLatestPost.Location = new System.Drawing.Point(239, 210);
             this.lblLatestPost.Name = "lblLatestPost";
-            this.lblLatestPost.Size = new System.Drawing.Size(57, 13);
+            this.lblLatestPost.Size = new System.Drawing.Size(67, 13);
             this.lblLatestPost.TabIndex = 26;
             this.lblLatestPost.Text = "LatestPost";
             this.lblLatestPost.Visible = false;
