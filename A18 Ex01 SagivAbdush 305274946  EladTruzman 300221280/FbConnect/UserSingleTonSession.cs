@@ -9,6 +9,7 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280
 {
     public class UserSingleTonSession
     {
+        
         public User m_LoggedInUser;
         private static UserSingleTonSession m_Instance;
         private string m_ErrorMessageResult = string.Empty;
@@ -40,15 +41,20 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280
             }
         }
 
+        public void logOut()
+        {
+            m_Instance = null;
+            FacebookService.Logout(initializeFaceBookLoginPermissions);
 
-
+        }
+        public LoginResult LogInResult { get; set; }
         public void initializeFaceBookLoginPermissions()
         {
             /// Owner: design.patterns
 
             /// Use the FacebookService.Login method to display the login form to any user who wish to use this application.
             /// You can then save the result.AccessToken for future auto-connect to this user:
-            LoginResult LogInResult = FacebookService.Login("175713159647920", /// (desig patter's "Design Patterns Course App 2.4" app)
+             LogInResult = FacebookService.Login("175713159647920", /// (desig patter's "Design Patterns Course App 2.4" app)
                 "public_profile",
                 "user_education_history",
                 "user_birthday",
@@ -97,6 +103,7 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280
 
             if (!string.IsNullOrEmpty(LogInResult.AccessToken))
             {
+               
                 m_LoggedInUser = LogInResult.LoggedInUser;
             }
             if(!string.IsNullOrEmpty(LogInResult.ErrorMessage) && LogInResult.ErrorMessage != " ()")

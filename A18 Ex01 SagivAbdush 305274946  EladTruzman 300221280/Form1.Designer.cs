@@ -50,6 +50,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.LogOutBtn = new System.Windows.Forms.PictureBox();
             this.userImageProfile = new System.Windows.Forms.PictureBox();
             this.loginBtn = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMusic)).BeginInit();
@@ -57,6 +58,7 @@
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LogOutBtn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.userImageProfile)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.loginBtn)).BeginInit();
             this.SuspendLayout();
@@ -144,20 +146,21 @@
             // 
             // textBoxLatestPost
             // 
-            this.textBoxLatestPost.Location = new System.Drawing.Point(335, 14);
+            this.textBoxLatestPost.Location = new System.Drawing.Point(349, 18);
             this.textBoxLatestPost.Name = "textBoxLatestPost";
-            this.textBoxLatestPost.Size = new System.Drawing.Size(247, 20);
+            this.textBoxLatestPost.Size = new System.Drawing.Size(258, 20);
             this.textBoxLatestPost.TabIndex = 8;
             // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.DodgerBlue;
-            this.button1.Location = new System.Drawing.Point(239, 13);
+            this.button1.Location = new System.Drawing.Point(258, 15);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(90, 25);
             this.button1.TabIndex = 7;
             this.button1.Text = "Add Post";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // lblUserFirstName
             // 
@@ -292,6 +295,17 @@
             this.label6.Text = "Email:";
             this.label6.Visible = false;
             // 
+            // LogOutBtn
+            // 
+            this.LogOutBtn.Image = global::A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280.Properties.Resources.Custom_logOut;
+            this.LogOutBtn.Location = new System.Drawing.Point(706, 4);
+            this.LogOutBtn.Name = "LogOutBtn";
+            this.LogOutBtn.Size = new System.Drawing.Size(41, 39);
+            this.LogOutBtn.TabIndex = 24;
+            this.LogOutBtn.TabStop = false;
+            this.LogOutBtn.Click += new System.EventHandler(this.LogOutBtn_Click);
+            this.LogOutBtn.MouseHover += new System.EventHandler(this.LogOutBtn_MouseHover);
+            // 
             // userImageProfile
             // 
             this.userImageProfile.BackColor = System.Drawing.Color.Transparent;
@@ -317,8 +331,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.LightSteelBlue;
             this.ClientSize = new System.Drawing.Size(747, 502);
+            this.Controls.Add(this.LogOutBtn);
             this.Controls.Add(this.userImageProfile);
             this.Controls.Add(this.loginBtn);
             this.Controls.Add(this.label6);
@@ -336,6 +352,7 @@
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.textBoxLatestPost);
             this.Controls.Add(this.button1);
+            this.MaximizeBox = false;
             this.Name = "Form1";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMusic)).EndInit();
@@ -343,6 +360,7 @@
             this.tabPage1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LogOutBtn)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.userImageProfile)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.loginBtn)).EndInit();
             this.ResumeLayout(false);
@@ -375,6 +393,7 @@
         private System.Windows.Forms.TabPage tabPage5;
         private System.Windows.Forms.PictureBox userImageProfile;
         private System.Windows.Forms.PictureBox loginBtn;
+        private System.Windows.Forms.PictureBox LogOutBtn;
     }
 }
 

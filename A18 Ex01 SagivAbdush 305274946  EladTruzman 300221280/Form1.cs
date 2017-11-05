@@ -25,10 +25,28 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280
 
         private void fillTabs()
         {
-            string tt = E_TabType.music.ToString();
-            FacebookObjectCollection<Page> music = FacebookService.GetCollection<Page>(tt);
-            dynamic actionsData = FacebookService.GetDynamicData(tt);
+            //string tabType = E_TabType.music.ToString();
+            FacebookObjectCollection<Page> music = FacebookService.GetCollection<Page>(E_TabType.music.ToString());
+            dynamic actionsData = FacebookService.GetDynamicData(E_TabType.music.ToString());
+
+            //DataGrid dg = new DataGrid(); 
+            //DataGridViewRow dataRow = new DataGridViewRow();
+            //DataGridCell dataCell = new DataGridCell();
+
+            //for (int i = 0; i < music.Count; i++)
+            //{
+            //    music[i].
+
+            //}
+
             dataGridViewMusic.DataSource = music;
+
+            for(int i = 7 ; i < dataGridViewMusic.Columns.Count; i++)
+            {
+                dataGridViewMusic.Columns[i].Visible = false;
+            }
+           
+
 
             // m_LoggedInUser = result.LoggedInUser;
 
@@ -73,6 +91,7 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280
 
         private void loadUserDetailsLabelsToScreen()
         {
+            
             userImageProfile.LoadAsync(UserSingleTonSession.Instance.m_LoggedInUser.PictureNormalURL);
             lblUserFirstName.Text = UserSingleTonSession.Instance.m_LoggedInUser.FirstName;
             lblUserLastName.Text = UserSingleTonSession.Instance.m_LoggedInUser.LastName;
@@ -117,6 +136,61 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280
             {
                 MessageBox.Show(UserSingleTonSession.Instance.ErrorMessageResult);
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LogOutBtn_Click(object sender, EventArgs e)
+        {
+            DialogResult resultFromLogoutDialog = MessageBox.Show("Are you sure you want to LogOut and Exit?",
+           "Important Question",
+            MessageBoxButtons.YesNo);
+
+            if (resultFromLogoutDialog == DialogResult.Yes)
+            {
+                UserSingleTonSession.Instance.logOut();
+                ResetForm();
+                Close();
+            }
+
+      
+        }
+
+        private void ResetForm()
+        {
+            userImageProfile.LoadAsync();
+            lblUserFirstName.Text = string.Empty;
+            lblUserLastName.Text = string.Empty;
+            lblUserBirthDate.Text = string.Empty;
+            lblUserGender.Text = string.Empty;
+            lblUserReligion.Text = string.Empty;
+            lblUserEmail.Text = string.Empty;
+
+            label1.Visible = false;
+            label2.Visible = false;
+            label3.Visible = false;
+            label4.Visible = false;
+            label5.Visible = false;
+            label6.Visible = false;
+
+            lblUserFirstName.Visible = false;
+            lblUserLastName.Visible = false;
+            lblUserBirthDate.Visible = false;
+            lblUserEmail.Visible = false;
+            lblUserGender.Visible = false;
+            lblUserReligion.Visible = false;
+
+            dataGridViewMusic.DataSource = null;
+        }
+
+        private void LogOutBtn_MouseHover(object sender, EventArgs e)
+        {
+          
+            ToolTip toolTipForLogOutImgBtn = new ToolTip();
+            toolTipForLogOutImgBtn.SetToolTip(this.LogOutBtn, "Log-Out");
         }
     }
 }
