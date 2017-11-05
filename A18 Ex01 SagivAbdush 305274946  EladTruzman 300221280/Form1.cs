@@ -13,6 +13,9 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280
 {
     public partial class Form1 : Form
     {
+        public enum E_TabType { music = 1, television, movies, books };
+
+
         public Form1()
         {
             InitializeComponent();
@@ -20,102 +23,49 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280
             FacebookWrapper.FacebookService.s_FbApiVersion = 2.8f;
         }
 
-        User m_LoggedInUser;
-
-        private void initializeFaceBookLoginScreen()
-        {
-            /// Owner: design.patterns
-
-            /// Use the FacebookService.Login method to display the login form to any user who wish to use this application.
-            /// You can then save the result.AccessToken for future auto-connect to this user:
-            LoginResult result = FacebookService.Login("1450160541956417", /// (desig patter's "Design Patterns Course App 2.4" app)
-                "public_profile",
-                "user_education_history",
-                "user_birthday",
-                "user_actions.video",
-                "user_actions.news",
-                "user_actions.music",
-                "user_actions.fitness",
-                "user_actions.books",
-                "user_about_me",
-                "user_friends",
-                "publish_actions",
-                "user_events",
-                "user_games_activity",
-                //"user_groups" (This permission is only available for apps using Graph API version v2.3 or older.)
-                "user_hometown",
-                "user_likes",
-                "user_location",
-                "user_managed_groups",
-                "user_photos",
-                "user_posts",
-                "user_relationships",
-                "user_relationship_details",
-                "user_religion_politics",
-
-                //"user_status" (This permission is only available for apps using Graph API version v2.3 or older.)
-                "user_tagged_places",
-                "user_videos",
-                "user_website",
-                "user_work_history",
-                "read_custom_friendlists",
-
-                // "read_mailbox", (This permission is only available for apps using Graph API version v2.3 or older.)
-                "read_page_mailboxes",
-                // "read_stream", (This permission is only available for apps using Graph API version v2.3 or older.)
-                // "manage_notifications", (This permission is only available for apps using Graph API version v2.3 or older.)
-                "manage_pages",
-                "publish_pages",
-                "publish_actions",
-
-                "rsvp_event"
-                );
-            // These are NOT the complete list of permissions. Other permissions for example:
-            // "user_birthday", "user_education_history", "user_hometown", "user_likes","user_location","user_relationships","user_relationship_details","user_religion_politics", "user_videos", "user_website", "user_work_history", "email","read_insights","rsvp_event","manage_pages"
-            // The documentation regarding facebook login and permissions can be found here: 
-            // https://developers.facebook.com/docs/facebook-login/permissions#reference
-
-
-            if (!string.IsNullOrEmpty(result.AccessToken))
-            {
-                m_LoggedInUser = result.LoggedInUser;
-                userImageProfile.LoadAsync(m_LoggedInUser.PictureNormalURL);
-                if (m_LoggedInUser.Posts.Count > 0)
-                {
-                    textBoxLatestPost.Text = m_LoggedInUser.Posts[0].Message;
-                }
-
-                loadUserDetailsLabelsToScreen();
-                fillTabs();
-                
-               // FacebookObjectCollection<Page> actions = FacebookService.GetCollection<Page>(actionType);
-               // dynamic actionsData = FacebookService.GetDynamicData(actionType);
-               // listViewUserDetails.Items = actions;
-               
-
-
-            }
-            else
-            {
-                MessageBox.Show(result.ErrorMessage);
-            }
-
-
-        }
-
-        public enum E_TabType { music = 1, television, movies, books};
-            
-        
-
-        
-
-
         private void fillTabs()
         {
             string tt = E_TabType.music.ToString();
-            FacebookObjectCollection<Page> actions = FacebookService.GetCollection<Page>(tt);
+            FacebookObjectCollection<Page> music = FacebookService.GetCollection<Page>(tt);
             dynamic actionsData = FacebookService.GetDynamicData(tt);
-            dataGridViewMusic.DataSource = actions;
+            dataGridViewMusic.DataSource = music;
+
+            // m_LoggedInUser = result.LoggedInUser;
+
+
+            //if (m_LoggedInUser.FriendLists.Count > 0)
+            //{
+            //    for(int i =0;i< m_LoggedInUser.FriendLists.Count;i++)
+            //    {
+            //        string rr = m_LoggedInUser.FriendLists[0].Name;
+            //    }
+            //    // textBoxLatestPost.Text = m_LoggedInUser.Posts[0].Message;
+            //}
+
+            //            FB.api(
+            //    '/me',
+            //    'GET',
+            //  { "fields":"friends{name,tagged_places{place}}"},
+            //  function(response) {
+            //                // Insert your code here
+            //            }
+            //);
+            // string ff = "i_Fields:friends{name,tagged_places{place}";
+            // FacebookObjectCollection<User> friends = FacebookService.GetCollection<User>(ff);
+
+            // for (int i=0; i< friends.Count; i++)
+            // {
+
+            //     if (friends[i].PhotosTaggedIn[i].Place.Location.State == "Israel")
+            //     {
+            //         string hh = friends[i].PhotosTaggedIn[i].Place.Location.State;
+            //     }
+            // }
+            //// dynamic friendsList = FacebookService.GetDynamicData(ff);
+            ///// int ttt = 0;
+
+
+
 
         }
 
@@ -123,12 +73,13 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280
 
         private void loadUserDetailsLabelsToScreen()
         {
-            lblUserFirstName.Text = m_LoggedInUser.FirstName;
-            lblUserLastName.Text = m_LoggedInUser.LastName;
-            lblUserBirthDate.Text = m_LoggedInUser.Birthday;
-            lblUserGender.Text = m_LoggedInUser.Gender.ToString();
-            lblUserReligion.Text = m_LoggedInUser.Religion;
-            lblUserEmail.Text = m_LoggedInUser.Email;
+            userImageProfile.LoadAsync(UserSingleTonSession.Instance.m_LoggedInUser.PictureNormalURL);
+            lblUserFirstName.Text = UserSingleTonSession.Instance.m_LoggedInUser.FirstName;
+            lblUserLastName.Text = UserSingleTonSession.Instance.m_LoggedInUser.LastName;
+            lblUserBirthDate.Text = UserSingleTonSession.Instance.m_LoggedInUser.Birthday;
+            lblUserGender.Text = UserSingleTonSession.Instance.m_LoggedInUser.Gender.ToString();
+            lblUserReligion.Text = UserSingleTonSession.Instance.m_LoggedInUser.Religion;
+            lblUserEmail.Text = UserSingleTonSession.Instance.m_LoggedInUser.Email;
 
             label1.Visible = true;
             label2.Visible = true;
@@ -146,19 +97,26 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280
         }
 
 
-        private void loginBtn_Click(object sender, EventArgs e)
-        {
-            initializeFaceBookLoginScreen();
-        }
-
-        private void userImageProfile_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void listViewUserDetails_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+
+
+        private void loginBtn_Click(object sender, EventArgs e)
+        {
+            UserSingleTonSession.Instance.initializeFaceBookLoginPermissions();
+            if (UserSingleTonSession.Instance.m_LoggedInUser != null && UserSingleTonSession.Instance.m_LoggedInUser.Id != null)
+            {
+                loadUserDetailsLabelsToScreen();
+                fillTabs();
+            }
+
+            if (!string.IsNullOrEmpty(UserSingleTonSession.Instance.ErrorMessageResult))
+            {
+                MessageBox.Show(UserSingleTonSession.Instance.ErrorMessageResult);
+            }
         }
     }
 }

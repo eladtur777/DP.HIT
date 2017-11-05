@@ -28,8 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.userImageProfile = new System.Windows.Forms.PictureBox();
-            this.loginBtn = new System.Windows.Forms.PictureBox();
             this.dataGridViewMusic = new System.Windows.Forms.DataGridView();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -52,36 +50,16 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.userImageProfile)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.loginBtn)).BeginInit();
+            this.userImageProfile = new System.Windows.Forms.PictureBox();
+            this.loginBtn = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMusic)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.userImageProfile)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.loginBtn)).BeginInit();
             this.SuspendLayout();
-            // 
-            // userImageProfile
-            // 
-            this.userImageProfile.BackColor = System.Drawing.Color.Transparent;
-            this.userImageProfile.Location = new System.Drawing.Point(16, 61);
-            this.userImageProfile.Name = "userImageProfile";
-            this.userImageProfile.Size = new System.Drawing.Size(141, 162);
-            this.userImageProfile.TabIndex = 6;
-            this.userImageProfile.TabStop = false;
-            this.userImageProfile.Click += new System.EventHandler(this.userImageProfile_Click);
-            // 
-            // loginBtn
-            // 
-            this.loginBtn.BackColor = System.Drawing.Color.Transparent;
-            this.loginBtn.Image = global::A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280.Properties.Resources.facebook_signBtn;
-            this.loginBtn.Location = new System.Drawing.Point(-1, -9);
-            this.loginBtn.Name = "loginBtn";
-            this.loginBtn.Size = new System.Drawing.Size(194, 67);
-            this.loginBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.loginBtn.TabIndex = 5;
-            this.loginBtn.TabStop = false;
-            this.loginBtn.Click += new System.EventHandler(this.loginBtn_Click);
             // 
             // dataGridViewMusic
             // 
@@ -112,7 +90,7 @@
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(745, 256);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "tabPage1";
+            this.tabPage1.Text = "MyMusic";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // tabPage2
@@ -151,7 +129,7 @@
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage4.Size = new System.Drawing.Size(745, 256);
             this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "tabPage4";
+            this.tabPage4.Text = "FaceBook Trip Advisor";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
             // tabPage5
@@ -161,7 +139,7 @@
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage5.Size = new System.Drawing.Size(745, 256);
             this.tabPage5.TabIndex = 4;
-            this.tabPage5.Text = "tabPage5";
+            this.tabPage5.Text = "Friends Music Share";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
             // textBoxLatestPost
@@ -314,12 +292,35 @@
             this.label6.Text = "Email:";
             this.label6.Visible = false;
             // 
+            // userImageProfile
+            // 
+            this.userImageProfile.BackColor = System.Drawing.Color.Transparent;
+            this.userImageProfile.Location = new System.Drawing.Point(13, 71);
+            this.userImageProfile.Name = "userImageProfile";
+            this.userImageProfile.Size = new System.Drawing.Size(141, 152);
+            this.userImageProfile.TabIndex = 23;
+            this.userImageProfile.TabStop = false;
+            // 
+            // loginBtn
+            // 
+            this.loginBtn.BackColor = System.Drawing.Color.Transparent;
+            this.loginBtn.Image = global::A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280.Properties.Resources.facebook_signBtn;
+            this.loginBtn.Location = new System.Drawing.Point(1, 1);
+            this.loginBtn.Name = "loginBtn";
+            this.loginBtn.Size = new System.Drawing.Size(190, 67);
+            this.loginBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.loginBtn.TabIndex = 22;
+            this.loginBtn.TabStop = false;
+            this.loginBtn.Click += new System.EventHandler(this.loginBtn_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSteelBlue;
             this.ClientSize = new System.Drawing.Size(747, 502);
+            this.Controls.Add(this.userImageProfile);
+            this.Controls.Add(this.loginBtn);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -332,37 +333,30 @@
             this.Controls.Add(this.lblUserBirthDate);
             this.Controls.Add(this.lblUserLastName);
             this.Controls.Add(this.lblUserFirstName);
-            this.Controls.Add(this.userImageProfile);
-            this.Controls.Add(this.loginBtn);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.textBoxLatestPost);
             this.Controls.Add(this.button1);
             this.Name = "Form1";
             this.Text = "Form1";
-            ((System.ComponentModel.ISupportInitialize)(this.userImageProfile)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.loginBtn)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMusic)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.userImageProfile)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.loginBtn)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.PictureBox userImageProfile;
-        private System.Windows.Forms.PictureBox loginBtn;
         private System.Windows.Forms.DataGridView dataGridViewMusic;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.TabPage tabPage4;
-        private System.Windows.Forms.TabPage tabPage5;
         private System.Windows.Forms.TextBox textBoxLatestPost;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label lblUserFirstName;
@@ -377,6 +371,10 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.TabPage tabPage5;
+        private System.Windows.Forms.PictureBox userImageProfile;
+        private System.Windows.Forms.PictureBox loginBtn;
     }
 }
 
