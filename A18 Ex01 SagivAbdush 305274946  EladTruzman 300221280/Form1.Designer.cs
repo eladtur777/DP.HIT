@@ -36,8 +36,8 @@
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.tabPage5 = new System.Windows.Forms.TabPage();
-            this.textBoxLatestPost = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.textBoxPostPublish = new System.Windows.Forms.TextBox();
+            this.btnPostPublish = new System.Windows.Forms.Button();
             this.lblUserFirstName = new System.Windows.Forms.Label();
             this.lblUserLastName = new System.Windows.Forms.Label();
             this.lblUserBirthDate = new System.Windows.Forms.Label();
@@ -53,6 +53,8 @@
             this.LogOutBtn = new System.Windows.Forms.PictureBox();
             this.userImageProfile = new System.Windows.Forms.PictureBox();
             this.loginBtn = new System.Windows.Forms.PictureBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.lblLatestPost = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMusic)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -144,23 +146,25 @@
             this.tabPage5.Text = "Friends Music Share";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
-            // textBoxLatestPost
+            // textBoxPostPublish
             // 
-            this.textBoxLatestPost.Location = new System.Drawing.Point(349, 18);
-            this.textBoxLatestPost.Name = "textBoxLatestPost";
-            this.textBoxLatestPost.Size = new System.Drawing.Size(258, 20);
-            this.textBoxLatestPost.TabIndex = 8;
+            this.textBoxPostPublish.Location = new System.Drawing.Point(349, 17);
+            this.textBoxPostPublish.Name = "textBoxPostPublish";
+            this.textBoxPostPublish.Size = new System.Drawing.Size(258, 20);
+            this.textBoxPostPublish.TabIndex = 8;
             // 
-            // button1
+            // btnPostPublish
             // 
-            this.button1.BackColor = System.Drawing.Color.DodgerBlue;
-            this.button1.Location = new System.Drawing.Point(258, 15);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(90, 25);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "Add Post";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnPostPublish.BackColor = System.Drawing.Color.SteelBlue;
+            this.btnPostPublish.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPostPublish.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnPostPublish.Location = new System.Drawing.Point(258, 15);
+            this.btnPostPublish.Name = "btnPostPublish";
+            this.btnPostPublish.Size = new System.Drawing.Size(90, 25);
+            this.btnPostPublish.TabIndex = 7;
+            this.btnPostPublish.Text = "Publish Post";
+            this.btnPostPublish.UseVisualStyleBackColor = false;
+            this.btnPostPublish.Click += new System.EventHandler(this.btnPostPublish_Click);
             // 
             // lblUserFirstName
             // 
@@ -327,6 +331,26 @@
             this.loginBtn.TabStop = false;
             this.loginBtn.Click += new System.EventHandler(this.loginBtn_Click);
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(158, 166);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(63, 13);
+            this.label7.TabIndex = 25;
+            this.label7.Text = "Latest Post:";
+            this.label7.Visible = false;
+            // 
+            // lblLatestPost
+            // 
+            this.lblLatestPost.AutoSize = true;
+            this.lblLatestPost.Location = new System.Drawing.Point(220, 166);
+            this.lblLatestPost.Name = "lblLatestPost";
+            this.lblLatestPost.Size = new System.Drawing.Size(57, 13);
+            this.lblLatestPost.TabIndex = 26;
+            this.lblLatestPost.Text = "LatestPost";
+            this.lblLatestPost.Visible = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -334,6 +358,8 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.LightSteelBlue;
             this.ClientSize = new System.Drawing.Size(747, 502);
+            this.Controls.Add(this.lblLatestPost);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.LogOutBtn);
             this.Controls.Add(this.userImageProfile);
             this.Controls.Add(this.loginBtn);
@@ -350,8 +376,8 @@
             this.Controls.Add(this.lblUserLastName);
             this.Controls.Add(this.lblUserFirstName);
             this.Controls.Add(this.tabControl1);
-            this.Controls.Add(this.textBoxLatestPost);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.textBoxPostPublish);
+            this.Controls.Add(this.btnPostPublish);
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.Text = "Form1";
@@ -375,8 +401,8 @@
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.TextBox textBoxLatestPost;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox textBoxPostPublish;
+        private System.Windows.Forms.Button btnPostPublish;
         private System.Windows.Forms.Label lblUserFirstName;
         private System.Windows.Forms.Label lblUserLastName;
         private System.Windows.Forms.Label lblUserBirthDate;
@@ -394,6 +420,8 @@
         private System.Windows.Forms.PictureBox userImageProfile;
         private System.Windows.Forms.PictureBox loginBtn;
         private System.Windows.Forms.PictureBox LogOutBtn;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lblLatestPost;
     }
 }
 

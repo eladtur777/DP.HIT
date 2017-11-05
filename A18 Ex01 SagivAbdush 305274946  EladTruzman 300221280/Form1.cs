@@ -25,20 +25,8 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280
 
         private void fillTabs()
         {
-            //string tabType = E_TabType.music.ToString();
             FacebookObjectCollection<Page> music = FacebookService.GetCollection<Page>(E_TabType.music.ToString());
             dynamic actionsData = FacebookService.GetDynamicData(E_TabType.music.ToString());
-
-            //DataGrid dg = new DataGrid(); 
-            //DataGridViewRow dataRow = new DataGridViewRow();
-            //DataGridCell dataCell = new DataGridCell();
-
-            //for (int i = 0; i < music.Count; i++)
-            //{
-            //    music[i].
-
-            //}
-
             dataGridViewMusic.DataSource = music;
 
             for(int i = 7 ; i < dataGridViewMusic.Columns.Count; i++)
@@ -99,6 +87,7 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280
             lblUserGender.Text = UserSingleTonSession.Instance.m_LoggedInUser.Gender.ToString();
             lblUserReligion.Text = UserSingleTonSession.Instance.m_LoggedInUser.Religion;
             lblUserEmail.Text = UserSingleTonSession.Instance.m_LoggedInUser.Email;
+            lblLatestPost.Text = UserSingleTonSession.Instance.m_LoggedInUser.Posts[0].Message;
 
             label1.Visible = true;
             label2.Visible = true;
@@ -106,6 +95,7 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280
             label4.Visible = true;
             label5.Visible = true;
             label6.Visible = true;
+            label7.Visible = true;
 
             lblUserFirstName.Visible = true;
             lblUserLastName.Visible = true;
@@ -113,15 +103,8 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280
             lblUserEmail.Visible = true;
             lblUserGender.Visible = true;
             lblUserReligion.Visible = true;
+            lblLatestPost.Visible = true;
         }
-
-
-        private void listViewUserDetails_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-
 
         private void loginBtn_Click(object sender, EventArgs e)
         {
@@ -136,11 +119,6 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280
             {
                 MessageBox.Show(UserSingleTonSession.Instance.ErrorMessageResult);
             }
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void LogOutBtn_Click(object sender, EventArgs e)
@@ -168,21 +146,21 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280
             lblUserGender.Text = string.Empty;
             lblUserReligion.Text = string.Empty;
             lblUserEmail.Text = string.Empty;
-
+            lblLatestPost.Text = string.Empty;
             label1.Visible = false;
             label2.Visible = false;
             label3.Visible = false;
             label4.Visible = false;
             label5.Visible = false;
             label6.Visible = false;
-
+            label7.Visible = false;
             lblUserFirstName.Visible = false;
             lblUserLastName.Visible = false;
             lblUserBirthDate.Visible = false;
             lblUserEmail.Visible = false;
             lblUserGender.Visible = false;
             lblUserReligion.Visible = false;
-
+            lblLatestPost.Visible = false;
             dataGridViewMusic.DataSource = null;
         }
 
@@ -191,6 +169,24 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280
           
             ToolTip toolTipForLogOutImgBtn = new ToolTip();
             toolTipForLogOutImgBtn.SetToolTip(this.LogOutBtn, "Log-Out");
+        }
+
+        private void btnPostPublish_Click(object sender, EventArgs e)
+        {
+            if (textBoxPostPublish.Text != string.Empty)
+            {
+                try
+                {
+                    UserSingleTonSession.Instance.m_LoggedInUser.PostStatus(textBoxPostPublish.Text);
+                    MessageBox.Show("successfully Posted to your wall on FaceBook");
+                    lblLatestPost.Text = textBoxPostPublish.Text; 
+                }
+                catch (Exception ePost)
+                {
+                    MessageBox.Show(string.Format("Faild on Post to your wall:{0}", ePost.Message));
+                }
+            }
+
         }
     }
 }
