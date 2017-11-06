@@ -15,7 +15,7 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new MainForm());
         }
     }
 }

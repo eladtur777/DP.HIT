@@ -1,6 +1,6 @@
 ﻿namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280
 {
-    partial class Form1
+    partial class MainForm
     {
         /// <summary>
         /// Required designer variable.
@@ -34,8 +34,9 @@
             this.MyBooks = new System.Windows.Forms.TabPage();
             this.dataGridViewBooks = new System.Windows.Forms.DataGridView();
             this.MyMovies = new System.Windows.Forms.TabPage();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.dataGridViewMovies = new System.Windows.Forms.DataGridView();
+            this.MyFriends = new System.Windows.Forms.TabPage();
+            this.dataGridViewFriends = new System.Windows.Forms.DataGridView();
             this.textBoxPostPublish = new System.Windows.Forms.TextBox();
             this.btnPostPublish = new System.Windows.Forms.Button();
             this.lblUserFirstName = new System.Windows.Forms.Label();
@@ -55,21 +56,22 @@
             this.loginBtn = new System.Windows.Forms.PictureBox();
             this.label7 = new System.Windows.Forms.Label();
             this.lblLatestPost = new System.Windows.Forms.Label();
-            this.dataGridViewMovies = new System.Windows.Forms.DataGridView();
-            this.MyFriends = new System.Windows.Forms.TabPage();
-            this.dataGridViewFriends = new System.Windows.Forms.DataGridView();
+            this.btnTripAdvisor = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMusic)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.MyBooks.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBooks)).BeginInit();
             this.MyMovies.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.LogOutBtn)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.userImageProfile)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.loginBtn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMovies)).BeginInit();
             this.MyFriends.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFriends)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LogOutBtn)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.userImageProfile)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.loginBtn)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridViewMusic
@@ -86,8 +88,6 @@
             this.tabControl1.Controls.Add(this.MyBooks);
             this.tabControl1.Controls.Add(this.MyMovies);
             this.tabControl1.Controls.Add(this.MyFriends);
-            this.tabControl1.Controls.Add(this.tabPage4);
-            this.tabControl1.Controls.Add(this.tabPage5);
             this.tabControl1.Location = new System.Drawing.Point(-3, 229);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -135,25 +135,32 @@
             this.MyMovies.Text = "MyMovies";
             this.MyMovies.UseVisualStyleBackColor = true;
             // 
-            // tabPage4
+            // dataGridViewMovies
             // 
-            this.tabPage4.Location = new System.Drawing.Point(4, 22);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(745, 256);
-            this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "FaceBook Trip Advisor";
-            this.tabPage4.UseVisualStyleBackColor = true;
+            this.dataGridViewMovies.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewMovies.Location = new System.Drawing.Point(0, 0);
+            this.dataGridViewMovies.Name = "dataGridViewMovies";
+            this.dataGridViewMovies.Size = new System.Drawing.Size(746, 253);
+            this.dataGridViewMovies.TabIndex = 0;
             // 
-            // tabPage5
+            // MyFriends
             // 
-            this.tabPage5.Location = new System.Drawing.Point(4, 22);
-            this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(745, 256);
-            this.tabPage5.TabIndex = 4;
-            this.tabPage5.Text = "Friends Music Share";
-            this.tabPage5.UseVisualStyleBackColor = true;
+            this.MyFriends.Controls.Add(this.dataGridViewFriends);
+            this.MyFriends.Location = new System.Drawing.Point(4, 22);
+            this.MyFriends.Name = "MyFriends";
+            this.MyFriends.Padding = new System.Windows.Forms.Padding(3);
+            this.MyFriends.Size = new System.Drawing.Size(745, 256);
+            this.MyFriends.TabIndex = 5;
+            this.MyFriends.Text = "MyFriends";
+            this.MyFriends.UseVisualStyleBackColor = true;
+            // 
+            // dataGridViewFriends
+            // 
+            this.dataGridViewFriends.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewFriends.Location = new System.Drawing.Point(0, 0);
+            this.dataGridViewFriends.Name = "dataGridViewFriends";
+            this.dataGridViewFriends.Size = new System.Drawing.Size(746, 250);
+            this.dataGridViewFriends.TabIndex = 0;
             // 
             // textBoxPostPublish
             // 
@@ -366,40 +373,54 @@
             this.lblLatestPost.Text = "LatestPost";
             this.lblLatestPost.Visible = false;
             // 
-            // dataGridViewMovies
+            // btnTripAdvisor
             // 
-            this.dataGridViewMovies.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewMovies.Location = new System.Drawing.Point(0, 0);
-            this.dataGridViewMovies.Name = "dataGridViewMovies";
-            this.dataGridViewMovies.Size = new System.Drawing.Size(746, 253);
-            this.dataGridViewMovies.TabIndex = 0;
+            this.btnTripAdvisor.Location = new System.Drawing.Point(534, 103);
+            this.btnTripAdvisor.Name = "btnTripAdvisor";
+            this.btnTripAdvisor.Size = new System.Drawing.Size(75, 23);
+            this.btnTripAdvisor.TabIndex = 27;
+            this.btnTripAdvisor.Text = "GO!";
+            this.btnTripAdvisor.UseVisualStyleBackColor = true;
+            this.btnTripAdvisor.Click += new System.EventHandler(this.btnTripAdvisor_Click);
             // 
-            // MyFriends
+            // button2
             // 
-            this.MyFriends.Controls.Add(this.dataGridViewFriends);
-            this.MyFriends.Location = new System.Drawing.Point(4, 22);
-            this.MyFriends.Name = "MyFriends";
-            this.MyFriends.Padding = new System.Windows.Forms.Padding(3);
-            this.MyFriends.Size = new System.Drawing.Size(745, 256);
-            this.MyFriends.TabIndex = 5;
-            this.MyFriends.Text = "MyFriends";
-            this.MyFriends.UseVisualStyleBackColor = true;
+            this.button2.Location = new System.Drawing.Point(534, 153);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 28;
+            this.button2.Text = "GO!";
+            this.button2.UseVisualStyleBackColor = true;
             // 
-            // dataGridViewFriends
+            // label8
             // 
-            this.dataGridViewFriends.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewFriends.Location = new System.Drawing.Point(0, 0);
-            this.dataGridViewFriends.Name = "dataGridViewFriends";
-            this.dataGridViewFriends.Size = new System.Drawing.Size(746, 250);
-            this.dataGridViewFriends.TabIndex = 0;
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(512, 87);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(115, 13);
+            this.label8.TabIndex = 29;
+            this.label8.Text = "FaceBook Trip Advisor";
             // 
-            // Form1
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(549, 137);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(49, 13);
+            this.label9.TabIndex = 30;
+            this.label9.Text = "Feature2";
+            // 
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.LightSteelBlue;
             this.ClientSize = new System.Drawing.Size(747, 502);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btnTripAdvisor);
             this.Controls.Add(this.lblLatestPost);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.LogOutBtn);
@@ -421,7 +442,7 @@
             this.Controls.Add(this.textBoxPostPublish);
             this.Controls.Add(this.btnPostPublish);
             this.MaximizeBox = false;
-            this.Name = "Form1";
+            this.Name = "MainForm";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMusic)).EndInit();
             this.tabControl1.ResumeLayout(false);
@@ -429,12 +450,12 @@
             this.MyBooks.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBooks)).EndInit();
             this.MyMovies.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.LogOutBtn)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.userImageProfile)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.loginBtn)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMovies)).EndInit();
             this.MyFriends.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFriends)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LogOutBtn)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.userImageProfile)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.loginBtn)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -461,8 +482,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TabPage tabPage4;
-        private System.Windows.Forms.TabPage tabPage5;
         private System.Windows.Forms.PictureBox userImageProfile;
         private System.Windows.Forms.PictureBox loginBtn;
         private System.Windows.Forms.PictureBox LogOutBtn;
@@ -471,6 +490,10 @@
         private System.Windows.Forms.DataGridView dataGridViewMovies;
         private System.Windows.Forms.TabPage MyFriends;
         private System.Windows.Forms.DataGridView dataGridViewFriends;
+        private System.Windows.Forms.Button btnTripAdvisor;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
     }
 }
 

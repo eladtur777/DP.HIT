@@ -8,98 +8,98 @@ using System.Text;
 using System.Windows.Forms;
 using FacebookWrapper.ObjectModel;
 using FacebookWrapper;
+using A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280.MainFormLogic;
 
 namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
+
+        private MainFormWF MainFormWF;
+        Dictionary<GeneralEnum.E_UserBasicDetails, string> m_UserBasicDetails;
+
         public enum E_TabType { music = 1, television, movies, books, friends };
 
 
-        public Form1()
+        public MainForm()
         {
             InitializeComponent();
-            FacebookWrapper.FacebookService.s_CollectionLimit = 200;
-            FacebookWrapper.FacebookService.s_FbApiVersion = 2.8f;
+            MainFormWF = new MainFormWF();
+            m_UserBasicDetails = new Dictionary<GeneralEnum.E_UserBasicDetails, string>();
+            // FacebookWrapper.FacebookService.s_CollectionLimit = 200;
+            //FacebookWrapper.FacebookService.s_FbApiVersion = 2.8f;
         }
 
         private void fillTabs()
         {
-            FacebookObjectCollection<Page> music = FacebookService.GetCollection<Page>(E_TabType.music.ToString());
-            dynamic actionsDataMusic = FacebookService.GetDynamicData(E_TabType.music.ToString());
-            dataGridViewMusic.DataSource = music;
+            dataGridViewMusic.DataSource = MainFormWF.GetUserMusic();
 
-            for(int i = 7 ; i < dataGridViewMusic.Columns.Count; i++)
+            for (int i = 7; i < dataGridViewMusic.Columns.Count; i++)
             {
                 dataGridViewMusic.Columns[i].Visible = false;
             }
 
-            FacebookObjectCollection<Page> books = FacebookService.GetCollection<Page>(E_TabType.books.ToString());
-            dynamic actionsDataBooks = FacebookService.GetDynamicData(E_TabType.books.ToString());
-            dataGridViewBooks.DataSource = books;
+            dataGridViewBooks.DataSource = MainFormWF.GetUserBooks();
 
             //for (int i = 7; i < dataGridViewBooks.Columns.Count; i++)
             //{
             //    dataGridViewBooks.Columns[i].Visible = false;
             //}
 
-            FacebookObjectCollection<Page> movies = FacebookService.GetCollection<Page>(E_TabType.movies.ToString());
-            dynamic actionsDataMovies = FacebookService.GetDynamicData(E_TabType.movies.ToString());
-            dataGridViewMovies.DataSource = movies;
+            dataGridViewMovies.DataSource = MainFormWF.GetUserMovies();
 
             //for (int i = 7; i < dataGridViewMovies.Columns.Count; i++)
             //{
             //    dataGridViewMovies.Columns[i].Visible = false;
             //}
 
-            FacebookObjectCollection<Page> friends = FacebookService.GetCollection<Page>(E_TabType.friends.ToString());
-            dynamic actionsDataFriends = FacebookService.GetDynamicData(E_TabType.friends.ToString());
-            dataGridViewFriends.DataSource = friends;
+            dataGridViewFriends.DataSource = MainFormWF.GetUserFriends();
 
             //for (int i = 7; i < dataGridViewFriends.Columns.Count; i++)
             //{
             //    dataGridViewFriends.Columns[i].Visible = false;
             //}
-
-      
-           
-
-          
-            // string ff = "i_Fields:friends{name,tagged_places{place}";
-            // FacebookObjectCollection<User> friends = FacebookService.GetCollection<User>(ff);
-
-            // for (int i=0; i< friends.Count; i++)
-            // {
-
-            //     if (friends[i].PhotosTaggedIn[i].Place.Location.State == "Israel")
-            //     {
-            //         string hh = friends[i].PhotosTaggedIn[i].Place.Location.State;
-            //     }
-            // }
-            //// dynamic friendsList = FacebookService.GetDynamicData(ff);
-            ///// int ttt = 0;
-
-
-
-
         }
 
-
-
-        private void loadUserDetailsLabelsToScreen()
+        private void LoadUserDetailsLabelsToScreen()
         {
-            
-            userImageProfile.LoadAsync(UserSingleTonSession.Instance.m_LoggedInUser.PictureNormalURL);
+            m_UserBasicDetails = MainFormWF.GetUserBasicDetails();
+            string name = Enum.GetName(typeof(GeneralEnum.E_UserBasicDetails),
+            GeneralEnum.E_UserBasicDetails.UserImage);
+
+            foreach (var key in m_UserBasicDetails.Keys)
+            {
+                switch (key)
+                {
+                    case GeneralEnum.E_UserBasicDetails.UserImage:
+                        userImageProfile.LoadAsync(m_UserBasicDetails[key]);
+                        break;
+                    case GeneralEnum.E_UserBasicDetails.FirstName:
+                        lblUserFirstName.Text = m_UserBasicDetails[key];
+                        break;
+                    case GeneralEnum.E_UserBasicDetails.LastName:
+                        lblUserLastName.Text = m_UserBasicDetails[key];
+                        break;
+                    case GeneralEnum.E_UserBasicDetails.Birthday:
+                        lblUserBirthDate.Text = m_UserBasicDetails[key];
+                        break;
+                    case GeneralEnum.E_UserBasicDetails.Gender:
+                        lblUserGender.Text = m_UserBasicDetails[key];
+                        break;
+                    case GeneralEnum.E_UserBasicDetails.Religion:
+                        lblUserReligion.Text = m_UserBasicDetails[key];
+                        break;
+                    case GeneralEnum.E_UserBasicDetails.Email:
+                        lblUserEmail.Text = m_UserBasicDetails[key];
+                        break;
+                    case GeneralEnum.E_UserBasicDetails.PostMessage:
+                        lblLatestPost.Text = m_UserBasicDetails[key];
+                        break;
+                }
+            }
+
             btnPostPublish.Enabled = true;
             textBoxPostPublish.Enabled = true;
-            lblUserFirstName.Text = UserSingleTonSession.Instance.m_LoggedInUser.FirstName;
-            lblUserLastName.Text = UserSingleTonSession.Instance.m_LoggedInUser.LastName;
-            lblUserBirthDate.Text = UserSingleTonSession.Instance.m_LoggedInUser.Birthday;
-            lblUserGender.Text = UserSingleTonSession.Instance.m_LoggedInUser.Gender.ToString();
-            lblUserReligion.Text = UserSingleTonSession.Instance.m_LoggedInUser.Religion;
-            lblUserEmail.Text = UserSingleTonSession.Instance.m_LoggedInUser.Email;
-            lblLatestPost.Text = UserSingleTonSession.Instance.m_LoggedInUser.Posts[0].Message;
-
             label1.Visible = true;
             label2.Visible = true;
             label3.Visible = true;
@@ -107,7 +107,6 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280
             label5.Visible = true;
             label6.Visible = true;
             label7.Visible = true;
-
             lblUserFirstName.Visible = true;
             lblUserLastName.Visible = true;
             lblUserBirthDate.Visible = true;
@@ -119,16 +118,15 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280
 
         private void loginBtn_Click(object sender, EventArgs e)
         {
-            UserSingleTonSession.Instance.initializeFaceBookLoginPermissions();
-            if (UserSingleTonSession.Instance.m_LoggedInUser != null && UserSingleTonSession.Instance.m_LoggedInUser.Id != null)
+            string result = MainFormWF.InitializeFaceBookLogin();
+            if (string.IsNullOrEmpty(result))
             {
-                loadUserDetailsLabelsToScreen();
+                LoadUserDetailsLabelsToScreen();
                 fillTabs();
             }
-
-            if (!string.IsNullOrEmpty(UserSingleTonSession.Instance.ErrorMessageResult))
+            else
             {
-                MessageBox.Show(UserSingleTonSession.Instance.ErrorMessageResult);
+                MessageBox.Show(result);
             }
         }
 
@@ -140,17 +138,14 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280
 
             if (resultFromLogoutDialog == DialogResult.Yes)
             {
-                UserSingleTonSession.Instance.logOut();
-                ResetForm();
-                Close();
+                //MainFormWF.FaceBookLogOut(ResetForm);
+                FacebookService.Logout(ResetForm);
             }
-
-      
         }
 
         private void ResetForm()
         {
-            userImageProfile.LoadAsync();
+            userImageProfile.Image = null;
             textBoxPostPublish.Enabled = false;
             lblUserFirstName.Text = string.Empty;
             lblUserLastName.Text = string.Empty;
@@ -179,7 +174,6 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280
 
         private void LogOutBtn_MouseHover(object sender, EventArgs e)
         {
-          
             ToolTip toolTipForLogOutImgBtn = new ToolTip();
             toolTipForLogOutImgBtn.SetToolTip(this.LogOutBtn, "Log-Out");
         }
@@ -188,18 +182,23 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280
         {
             if (textBoxPostPublish.Text != string.Empty)
             {
-                try
+                string result = MainFormWF.PublishPost(textBoxPostPublish.Text);
+                if (string.IsNullOrEmpty(result))
                 {
-                    UserSingleTonSession.Instance.m_LoggedInUser.PostStatus(textBoxPostPublish.Text);
                     MessageBox.Show("successfully Posted to your wall on FaceBook");
-                    lblLatestPost.Text = textBoxPostPublish.Text; 
+                    lblLatestPost.Text = textBoxPostPublish.Text;
                 }
-                catch (Exception ePost)
+                else
                 {
-                    MessageBox.Show(string.Format("Faild on Post to your wall:{0}", ePost.Message));
+                    MessageBox.Show(result);
                 }
             }
+        }
 
+        private void btnTripAdvisor_Click(object sender, EventArgs e)
+        {
+            FbTripAdvisorForm ta = new FbTripAdvisorForm();
+            ta.Show();
         }
     }
 }
