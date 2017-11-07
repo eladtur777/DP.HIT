@@ -8,7 +8,6 @@ c:\users\elad\source\repos\A18 Ex01 Sagiv 305274946 Elad 300221280\A18 Ex01 Sagi
 c:\users\elad\source\repos\A18 Ex01 Sagiv 305274946 Elad 300221280\A18 Ex01 SagivAbdush 305274946  EladTruzman 300221280\obj\Debug\A18 Ex01 SagivAbdush 305274946  EladTruzman 300221280.pdb
 C:\Users\elad\Desktop\A18 Ex01 Sagiv 305274946 Elad 300221280\A18 Ex01 SagivAbdush 305274946  EladTruzman 300221280\bin\Debug\A18 Ex01 SagivAbdush 305274946  EladTruzman 300221280.exe
 C:\Users\elad\Desktop\A18 Ex01 Sagiv 305274946 Elad 300221280\A18 Ex01 SagivAbdush 305274946  EladTruzman 300221280\bin\Debug\A18 Ex01 SagivAbdush 305274946  EladTruzman 300221280.pdb
-C:\Users\elad\Desktop\A18 Ex01 Sagiv 305274946 Elad 300221280\A18 Ex01 SagivAbdush 305274946  EladTruzman 300221280\obj\Debug\A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280.Form1.resources
 C:\Users\elad\Desktop\A18 Ex01 Sagiv 305274946 Elad 300221280\A18 Ex01 SagivAbdush 305274946  EladTruzman 300221280\obj\Debug\A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280.Properties.Resources.resources
 C:\Users\elad\Desktop\A18 Ex01 Sagiv 305274946 Elad 300221280\A18 Ex01 SagivAbdush 305274946  EladTruzman 300221280\obj\Debug\A18 Ex01 SagivAbdush 305274946  EladTruzman 300221280.csproj.GenerateResource.Cache
 C:\Users\elad\Desktop\A18 Ex01 Sagiv 305274946 Elad 300221280\A18 Ex01 SagivAbdush 305274946  EladTruzman 300221280\obj\Debug\A18 Ex01 SagivAbdush 305274946  EladTruzman 300221280.csproj.CoreCompileInputs.cache
@@ -17,3 +16,6 @@ C:\Users\elad\Desktop\A18 Ex01 Sagiv 305274946 Elad 300221280\A18 Ex01 SagivAbdu
 C:\Users\elad\Desktop\A18 Ex01 Sagiv 305274946 Elad 300221280\A18 Ex01 SagivAbdush 305274946  EladTruzman 300221280\bin\Debug\Facebook.dll
 C:\Users\elad\Desktop\A18 Ex01 Sagiv 305274946 Elad 300221280\A18 Ex01 SagivAbdush 305274946  EladTruzman 300221280\bin\Debug\FbGraphApiWrapper.dll
 C:\Users\elad\Desktop\A18 Ex01 Sagiv 305274946 Elad 300221280\A18 Ex01 SagivAbdush 305274946  EladTruzman 300221280\obj\Debug\A18 Ex01 SagivAbdush 305274946  EladTruzman 300221280.csprojResolveAssemblyReference.cache
+C:\Users\elad\Desktop\A18 Ex01 Sagiv 305274946 Elad 300221280\A18 Ex01 SagivAbdush 305274946  EladTruzman 300221280\obj\Debug\A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280.FbTripAdvisorForm.resources
+C:\Users\elad\Desktop\A18 Ex01 Sagiv 305274946 Elad 300221280\A18 Ex01 SagivAbdush 305274946  EladTruzman 300221280\obj\Debug\A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280.MainForm.resources
+C:\Users\elad\Desktop\A18 Ex01 Sagiv 305274946 Elad 300221280\A18 Ex01 SagivAbdush 305274946  EladTruzman 300221280\bin\Debug\Newtonsoft.Json.dll
