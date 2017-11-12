@@ -7,11 +7,22 @@ using FacebookWrapper;
 
 namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280
 {
-    public class UserSingleTonSession
+    public class UserLoginInstance
     {
         
-        public User m_LoggedInUser;
-        private static UserSingleTonSession m_Instance;
+        public static User m_LoggedInUser;
+        public static User LoggedInUser
+        {
+            get
+            {
+                return m_LoggedInUser;
+            }
+            set
+            {
+               m_LoggedInUser = value;
+            }
+        }
+        private static UserLoginInstance m_Instance;
         private string m_ErrorMessageResult = string.Empty;
         public string ErrorMessageResult
         {
@@ -25,16 +36,16 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280
             }
         }
 
-        private UserSingleTonSession()
+        private UserLoginInstance()
         { }
 
-        public static UserSingleTonSession Instance
+        public static UserLoginInstance Instance
         {
             get
             {
                 if (m_Instance == null)
                 {
-                    m_Instance = new UserSingleTonSession();
+                    m_Instance = new UserLoginInstance();
                 }
 
                 return m_Instance;
@@ -106,6 +117,8 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280
             }
           
         }
+
+     
 
     }
 }

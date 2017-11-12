@@ -7,83 +7,116 @@ using FacebookWrapper.ObjectModel;
 using FacebookWrapper;
 using System.Drawing;
 
+
 namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280.FbTripAdvisorLogic
 {
     public class TripAdvisorDAL
     {
-       
+        private FriendPosts FriendPostsToFill;
         private List<PictureBox> m_FriendsImageList = new List<PictureBox>();
+        List<Point> points = new List<Point>();
+        private Dictionary<int,FriendPosts> m_FriendPostsList = new Dictionary<int,FriendPosts>(50);
         private PictureBox m_SingleImage = new PictureBox();
         private Dictionary<int, Image> m_FriendsPhotosTaggedIn = new Dictionary<int, Image>();
-        private Dictionary<string, List<PictureBox>> m_FriendsPlaces;
-        public Dictionary<string, List<PictureBox>> FriendsPlaces
+        private Dictionary<string, Image> m_FriendsPlacesPictures;
+        public Dictionary<string, Image> FriendsPlacesPictures
+
         {
-            get { return m_FriendsPlaces; }
+            get { return m_FriendsPlacesPictures; }
         }
+
         public Dictionary<int, Image> FriendsPhotosTaggedIn
         {
             get { return m_FriendsPhotosTaggedIn; }
         }
-
-        public Dictionary<string, List<PictureBox>> GetFriendsPlacesBySpecificLocation(LocationSearch i_LocationList)
+        public Dictionary<int,FriendPosts> FriendPostsList
         {
-            m_FriendsPlaces = new Dictionary<string, List<PictureBox>>();
-           
+            get { return m_FriendPostsList; }
+        }
+
+        public Dictionary<string, Image> FriendsPlacesBySpecificLocation(LocationSearch i_LocationList)
+        {
+            //FacebookObjectCollection<Page> books = FacebookService.GetCollection<Page>(GeneralEnum.E_MainTabType.books.ToString());
+            //dynamic actionsDataBooks = FacebookService.GetDynamicData(GeneralEnum.E_MainTabType.books.ToString());
+
+            m_FriendsPlacesPictures = new Dictionary<string, Image>();
             FacebookObjectCollection<Page> friends = FacebookService.GetCollection<Page>(GeneralEnum.E_MainTabType.friends.ToString());
             dynamic actionsDataFriends = FacebookService.GetDynamicData(GeneralEnum.E_MainTabType.friends.ToString());
-
+            FacebookObjectCollection<Post> friendPost;
+            PicturesColleciton friendPictures;
+            m_FriendPostsList.Clear();
+            int innerIndex = 0;
             for (int i = 0; i < friends.Count; i++)
             {
-                if (!string.IsNullOrEmpty(i_LocationList.State))
-                { 
-                    if (friends[i].PhotosTaggedIn[i].Place.Location.State == i_LocationList.State)
+                // friends[i].PhotosTaggedIn[i]
+
+                friendPost = friends[i].Posts;
+  
+                string LocationPlace = i_LocationList.General;
+                List<string> WordsList = new List<string>();
+                char[] delimiterChars = {' ', ',', '.', '\t','-','_' };
+                string[] words = LocationPlace.Split(delimiterChars);
+            
+                for (int j = 0; j < friendPost.Count; j++)
+                {
+
+                    if (friendPost[j].Place != null)
                     {
-                        m_SingleImage.Image = friends[i].PhotosTaggedIn[i].ImageNormal;
-                        ToolTip toolTipForFriendImage = new ToolTip();
-                        toolTipForFriendImage.SetToolTip(m_SingleImage, friends[i].PhotosTaggedIn[i].Place.Name);
-                        m_FriendsImageList.Add(m_SingleImage);
-                        m_FriendsPlaces.Add(i_LocationList.State, m_FriendsImageList);
-                    }
-                    //Mandatory field
-                    else if (friends[i].PhotosTaggedIn[i].Place.Location.City == i_LocationList.City &&
-                        friends[i].PhotosTaggedIn[i].Place.Location.Country == i_LocationList.Country)
-                    {
-                        m_FriendsPhotosTaggedIn.Add(i, friends[i].PhotosTaggedIn[i].ImageNormal);
-                        m_SingleImage.Image = friends[i].PhotosTaggedIn[i].ImageNormal;
-                        ToolTip toolTipForFriendImage = new ToolTip();
-                        toolTipForFriendImage.SetToolTip(m_SingleImage, friends[i].PhotosTaggedIn[i].Place.Name);
-                       // m_SingleImage.Click +=;
-                        m_FriendsImageList.Add(m_SingleImage);
-                        m_FriendsPlaces.Add(i_LocationList.State, m_FriendsImageList);
-                    }
-                    //Mandatory field
-                    else if (friends[i].PhotosTaggedIn[i].Place.Location.Country == i_LocationList.Country)
-                    {
-                        m_SingleImage.Image = friends[i].PhotosTaggedIn[i].ImageNormal;
-                        ToolTip toolTipForFriendImage = new ToolTip();
-                        toolTipForFriendImage.SetToolTip(m_SingleImage, friends[i].PhotosTaggedIn[i].Place.Name);
-                        m_FriendsImageList.Add(m_SingleImage);
-                        m_FriendsPlaces.Add(i_LocationList.State, m_FriendsImageList);
+                        foreach (string word in words)
+                        {
+                            if (!string.IsNullOrEmpty(word))
+                            {
+                                if (friendPost[j].Place.Name.ToUpper().Contains(word.ToUpper()))
+                                {
+                                   
+                                    //Fill friends profile image list 
+                                    m_FriendsPlacesPictures.Add(friends[i].Name, friends[i].ImageSquare);
+                                    FriendPostsToFill = new FriendPosts();
+                                    FriendPostsToFill.FriendId = friends[i].Id;
+                                    FriendPostsToFill.FriendComments = friendPost[j].Comments;
+                                    FriendPostsToFill.LikedBy = friendPost[j].LikedBy;
+                                    FriendPostsToFill.Message = friendPost[j].Message;
+                                    FriendPostsToFill.Name = friendPost[j].Name;
+                                    FriendPostsToFill.PictureUrl = friendPost[j].PictureURL;
+                                    FriendPostsToFill.Place = friendPost[j].Place.Name;
+                                    FriendPostsToFill.PostDescription = friendPost[j].Description;
+                                    FriendPostsToFill.PostedDateTime = friendPost[j].CreatedTime.Value;
+                                    m_FriendPostsList.Add(innerIndex, FriendPostsToFill);
+                                    innerIndex++;
+
+                                }
+                            }
+                        }
                     }
                 }
+             }
+            
+            return m_FriendsPlacesPictures;
+        }
 
+
+        public List<Point> CalculateCoordinatesByRadius(Point i_Point,int i_Radius)
+        {
+            for (int i = 0; i < i_Radius; i++)
+            {
+                double angle = Math.PI * i / 180.0;
+                double sinAngle = Math.Sin(angle);
+                double cosAngle = Math.Cos(angle);
+
+               // i = pi * i / 180;     // convert to radians.
+               
+                Point p = new Point();
+                p.X = Convert.ToInt32(i_Point.X + i_Radius * sinAngle);
+                p.Y = Convert.ToInt32(i_Point.Y - i_Radius * cosAngle);
+                points.Add(p);
             }
 
 
-            return FriendsPlaces;
+
+            
+            return points;
         }
-            // string ff = "i_Fields:friends{name,tagged_places{place}";
-            // FacebookObjectCollection<User> friends = FacebookService.GetCollection<User>(ff);
 
-            // for (int i=0; i< friends.Count; i++)
-            // {
 
-            //     if (friends[i].PhotosTaggedIn[i].Place.Location.State == "Israel")
-            //     {
-            //         string hh = friends[i].PhotosTaggedIn[i].Place.Location.State;
-            //     }
-            // }
-            //// dynamic friendsList = FacebookService.GetDynamicData(ff);
-            ///// int ttt = 0;
         }
 }

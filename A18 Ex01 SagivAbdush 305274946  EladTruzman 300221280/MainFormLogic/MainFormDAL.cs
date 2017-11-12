@@ -40,29 +40,29 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280.MainFormLogic
         public Dictionary<GeneralEnum.E_UserBasicDetails, string> GetUserBasicDetails()
         {         
             Dictionary<GeneralEnum.E_UserBasicDetails, string> m_UserDetails = new Dictionary<GeneralEnum.E_UserBasicDetails, string>();
-            m_UserDetails.Add(GeneralEnum.E_UserBasicDetails.UserImage, UserSingleTonSession.Instance.m_LoggedInUser.PictureNormalURL);
-            m_UserDetails.Add(GeneralEnum.E_UserBasicDetails.FirstName, UserSingleTonSession.Instance.m_LoggedInUser.FirstName);
-            m_UserDetails.Add(GeneralEnum.E_UserBasicDetails.LastName, UserSingleTonSession.Instance.m_LoggedInUser.LastName);
-            m_UserDetails.Add(GeneralEnum.E_UserBasicDetails.Birthday, UserSingleTonSession.Instance.m_LoggedInUser.Birthday);
-            m_UserDetails.Add(GeneralEnum.E_UserBasicDetails.Gender, UserSingleTonSession.Instance.m_LoggedInUser.Gender.ToString());
-            m_UserDetails.Add(GeneralEnum.E_UserBasicDetails.Religion, UserSingleTonSession.Instance.m_LoggedInUser.Religion);
-            m_UserDetails.Add(GeneralEnum.E_UserBasicDetails.Email, UserSingleTonSession.Instance.m_LoggedInUser.Email);
-            m_UserDetails.Add(GeneralEnum.E_UserBasicDetails.PostMessage, UserSingleTonSession.Instance.m_LoggedInUser.Posts[0].Message);
+            m_UserDetails.Add(GeneralEnum.E_UserBasicDetails.UserImage, UserLoginInstance.LoggedInUser.PictureNormalURL);
+            m_UserDetails.Add(GeneralEnum.E_UserBasicDetails.FirstName, UserLoginInstance.LoggedInUser.FirstName);
+            m_UserDetails.Add(GeneralEnum.E_UserBasicDetails.LastName, UserLoginInstance.LoggedInUser.LastName);
+            m_UserDetails.Add(GeneralEnum.E_UserBasicDetails.Birthday, UserLoginInstance.LoggedInUser.Birthday);
+            m_UserDetails.Add(GeneralEnum.E_UserBasicDetails.Gender, UserLoginInstance.LoggedInUser.Gender.ToString());
+            m_UserDetails.Add(GeneralEnum.E_UserBasicDetails.Religion, UserLoginInstance.LoggedInUser.Religion);
+            m_UserDetails.Add(GeneralEnum.E_UserBasicDetails.Email, UserLoginInstance.LoggedInUser.Email);
+            m_UserDetails.Add(GeneralEnum.E_UserBasicDetails.PostMessage, UserLoginInstance.LoggedInUser.Posts[0].Message);
             return m_UserDetails;
         }
 
         public string InitializeFaceBookLogin()
         {
             string result = string.Empty;
-            UserSingleTonSession.Instance.initializeFaceBookLoginPermissions();
-            if (UserSingleTonSession.Instance.m_LoggedInUser != null && UserSingleTonSession.Instance.m_LoggedInUser.Id != null)
+            UserLoginInstance.Instance.initializeFaceBookLoginPermissions();
+            if (UserLoginInstance.LoggedInUser != null && UserLoginInstance.LoggedInUser.Id != null)
             {
                 result = "";
             }
 
-            if (!string.IsNullOrEmpty(UserSingleTonSession.Instance.ErrorMessageResult))
+            if (!string.IsNullOrEmpty(UserLoginInstance.Instance.ErrorMessageResult))
             {
-                result = UserSingleTonSession.Instance.ErrorMessageResult;
+                result = UserLoginInstance.Instance.ErrorMessageResult;
             }
 
             return result;
@@ -75,7 +75,7 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280.MainFormLogic
             {
                 try
                 {
-                    UserSingleTonSession.Instance.m_LoggedInUser.PostStatus(i_PostToPublish);
+                    UserLoginInstance.LoggedInUser.PostStatus(i_PostToPublish);
 
                 }
                 catch (Exception ePost)

@@ -10,6 +10,7 @@ using FacebookWrapper.ObjectModel;
 using FacebookWrapper;
 using A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280.MainFormLogic;
 
+
 namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280
 {
     public partial class MainForm : Form
@@ -26,7 +27,7 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280
             InitializeComponent();
             MainFormWF = new MainFormWF();
             m_UserBasicDetails = new Dictionary<GeneralEnum.E_UserBasicDetails, string>();
-            // FacebookWrapper.FacebookService.s_CollectionLimit = 200;
+             FacebookWrapper.FacebookService.s_CollectionLimit = 200;
             //FacebookWrapper.FacebookService.s_FbApiVersion = 2.8f;
         }
 
@@ -138,8 +139,17 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280
 
             if (resultFromLogoutDialog == DialogResult.Yes)
             {
-                //MainFormWF.FaceBookLogOut(ResetForm);
-                FacebookService.Logout(ResetForm);
+
+
+                if (UserLoginInstance.LoggedInUser != null)
+                {
+                    FacebookService.Logout(ResetForm);
+
+                }
+
+
+
+
             }
         }
 
@@ -199,6 +209,15 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280
         {
             FbTripAdvisorForm ta = new FbTripAdvisorForm();
             ta.Show();
+        }
+
+        private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (UserLoginInstance.LoggedInUser != null)
+            {
+                FacebookService.Logout(null);
+
+            }
         }
     }
 }
