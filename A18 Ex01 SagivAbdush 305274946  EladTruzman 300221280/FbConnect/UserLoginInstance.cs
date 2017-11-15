@@ -4,13 +4,17 @@ using System.Linq;
 using System.Text;
 using FacebookWrapper.ObjectModel;
 using FacebookWrapper;
+using System.Windows.Forms;
 
 namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280
 {
-    public class UserLoginInstance
+    public sealed class UserLoginInstance
     {
-        
-        public static User m_LoggedInUser;
+        private static UserLoginInstance m_Instance;
+        private static readonly Object sr_ObjectForCriticalSection = new Object();
+        private string m_ErrorMessageResult = string.Empty;
+        private static User m_LoggedInUser;
+
         public static User LoggedInUser
         {
             get
@@ -22,8 +26,7 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280
                m_LoggedInUser = value;
             }
         }
-        private static UserLoginInstance m_Instance;
-        private string m_ErrorMessageResult = string.Empty;
+     
         public string ErrorMessageResult
         {
             get
@@ -39,13 +42,30 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280
         private UserLoginInstance()
         { }
 
+
         public static UserLoginInstance Instance
         {
             get
             {
+
                 if (m_Instance == null)
                 {
-                    m_Instance = new UserLoginInstance();
+                    lock (sr_ObjectForCriticalSection)
+                    {
+                        if (m_Instance == null)
+                        {
+                            try
+                            {
+                                m_Instance = new UserLoginInstance();
+                            }
+                            catch (Exception  E_message)
+                            {
+
+                                MessageBox.Show("Login Instance creation problem, Please try to Relogin again");
+                             
+                            }
+                        }
+                    }
                 }
 
                 return m_Instance;

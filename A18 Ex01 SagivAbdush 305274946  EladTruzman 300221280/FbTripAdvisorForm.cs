@@ -49,9 +49,9 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280
                     webRequest.Timeout = 20000;
                     webRequest.Method = "GET";
 
-                    webRequest.BeginGetResponse(new AsyncCallback(RequestCompleted), webRequest);
-
-
+                IAsyncResult Asyncresult = webRequest.BeginGetResponse(new AsyncCallback(RequestCompleted), webRequest);
+                //wait 10 sec for method RequestCompleted to finish
+                bool success = Asyncresult.AsyncWaitHandle.WaitOne(10 * 1000);
             }
         }
 
@@ -70,11 +70,15 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280
             GoogleLocations.RootObject RootObject = new GoogleLocations.RootObject();
             RootObject = Newtonsoft.Json.JsonConvert.DeserializeObject<GoogleLocations.RootObject>(resp);
 
-          
+      
+            
+           
+
             m_statusCode = response.StatusCode.ToString();
             if (m_statusCode == "OK" && RootObject.status != "ZERO_RESULTS")
             {
                 placesList = RootObject.predictions.Select(x => x.description).ToList();
+               
                 SetCollection(placesList,false);
 
             }
@@ -223,7 +227,7 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280
         //On cell click
       private void dataGridViewLocationsFriends_CellContentClick(object sender, DataGridViewCellEventArgs e)
       {
-            dataGridViewFriendsComments.Rows.Clear();
+            //dataGridViewFriendsComments.Rows.Clear();
             int row = e.RowIndex;
             Dictionary<int, FriendPosts> m_FriendPostsList = new Dictionary<int, FriendPosts>(50);
             m_FriendPostsList = tripAdvisorWF.FriendPostsList();

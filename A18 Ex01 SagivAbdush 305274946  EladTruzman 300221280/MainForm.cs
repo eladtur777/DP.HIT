@@ -143,7 +143,15 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280
 
                 if (UserLoginInstance.LoggedInUser != null)
                 {
-                    FacebookService.Logout(ResetForm);
+                    try
+                    {
+                        FacebookService.Logout(SuccessLogOut);
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("LogOut problem, please Exit from App");
+                    }
+
 
                 }
 
@@ -215,9 +223,30 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280
         {
             if (UserLoginInstance.LoggedInUser != null)
             {
-                FacebookService.Logout(null);
+                try
+                {
+                    FacebookService.Logout(null);
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("LogOut problem, please Exit from App");
+                }
 
             }
+        }
+
+        private void SuccessLogOut()
+        {
+            MessageBox.Show("Succesfuly Logout from App");
+
+        }
+
+     
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            FbClipSearch nn = new FbClipSearch();
+            nn.Show();
         }
     }
 }

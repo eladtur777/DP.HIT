@@ -54,6 +54,10 @@
             this.label11 = new System.Windows.Forms.Label();
             this.dataGridViewFriendsComments = new System.Windows.Forms.DataGridView();
             this.Comments = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewLocationsFriends)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -71,7 +75,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label1.Location = new System.Drawing.Point(146, 101);
+            this.label1.Location = new System.Drawing.Point(166, 170);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(569, 17);
             this.label1.TabIndex = 0;
@@ -108,11 +112,10 @@
             // 
             // txtBoxSearch
             // 
-            this.txtBoxSearch.Location = new System.Drawing.Point(199, 74);
+            this.txtBoxSearch.Location = new System.Drawing.Point(76, 76);
             this.txtBoxSearch.MaxLength = 50;
-            this.txtBoxSearch.Multiline = true;
             this.txtBoxSearch.Name = "txtBoxSearch";
-            this.txtBoxSearch.Size = new System.Drawing.Size(483, 25);
+            this.txtBoxSearch.Size = new System.Drawing.Size(203, 20);
             this.txtBoxSearch.TabIndex = 8;
             // 
             // splitContainer1
@@ -151,7 +154,7 @@
             this.comboBoxSearchResults.ForeColor = System.Drawing.SystemColors.MenuText;
             this.comboBoxSearchResults.FormattingEnabled = true;
             this.comboBoxSearchResults.ItemHeight = 13;
-            this.comboBoxSearchResults.Location = new System.Drawing.Point(480, 76);
+            this.comboBoxSearchResults.Location = new System.Drawing.Point(78, 107);
             this.comboBoxSearchResults.MaxDropDownItems = 15;
             this.comboBoxSearchResults.Name = "comboBoxSearchResults";
             this.comboBoxSearchResults.Size = new System.Drawing.Size(201, 21);
@@ -162,17 +165,17 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
             this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Location = new System.Drawing.Point(452, 75);
+            this.panel1.Location = new System.Drawing.Point(49, 76);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(26, 23);
+            this.panel1.Size = new System.Drawing.Size(26, 20);
             this.panel1.TabIndex = 13;
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280.Properties.Resources.SearchIcon;
-            this.pictureBox1.Location = new System.Drawing.Point(0, -1);
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(26, 24);
+            this.pictureBox1.Size = new System.Drawing.Size(26, 20);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 9;
             this.pictureBox1.TabStop = false;
@@ -180,7 +183,7 @@
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(121, 76);
+            this.btnSearch.Location = new System.Drawing.Point(76, 134);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(75, 23);
             this.btnSearch.TabIndex = 14;
@@ -313,6 +316,42 @@
             this.Comments.HeaderText = "Comments";
             this.Comments.Name = "Comments";
             // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(49, 53);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(98, 17);
+            this.checkBox1.TabIndex = 15;
+            this.checkBox1.Text = "Search from list";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // checkBox2
+            // 
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Location = new System.Drawing.Point(505, 53);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(102, 17);
+            this.checkBox2.TabIndex = 16;
+            this.checkBox2.Text = "Free text search";
+            this.checkBox2.UseVisualStyleBackColor = true;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(584, 77);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(190, 20);
+            this.textBox1.TabIndex = 17;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(505, 76);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 18;
+            this.button1.Text = "GO!";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // FbTripAdvisorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -320,6 +359,10 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.LightSteelBlue;
             this.ClientSize = new System.Drawing.Size(892, 513);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.checkBox2);
+            this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.panel1);
@@ -373,5 +416,9 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.DataGridView dataGridViewFriendsComments;
         private System.Windows.Forms.DataGridViewTextBoxColumn Comments;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button button1;
     }
 }
