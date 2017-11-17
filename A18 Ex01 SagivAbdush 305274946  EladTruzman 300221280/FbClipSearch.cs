@@ -1,4 +1,6 @@
-﻿using System;
+﻿using A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280.FbClipSearchLogic;
+using FacebookWrapper.ObjectModel;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -20,6 +22,14 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280
         {
             Uri uu = new Uri("https://www.youtube.com/watch?v=DV55unut3oI&feature=share");
             webBrowser1.Url = uu;//("https://www.youtube.com/watch?v=DV55unut3oI&feature=share");
+        }
+
+        private void btnClipSearch_Click(object sender, EventArgs e)
+        {
+            
+            Dictionary<Page, Post> results = new Dictionary<Page, Post>();
+               ClipSearchWF wf = new ClipSearchWF();
+            results = wf.FriendsClipPostSResults(textBox1.Text);
         }
     }
 }

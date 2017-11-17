@@ -51,8 +51,8 @@
             this.btnSearch = new System.Windows.Forms.Button();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.txtBoxFreeText = new System.Windows.Forms.TextBox();
+            this.btnFreeText = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewLocationsFriends)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -288,21 +288,22 @@
             this.checkBox2.Text = "Free text search";
             this.checkBox2.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // txtBoxFreeText
             // 
-            this.textBox1.Location = new System.Drawing.Point(584, 77);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(190, 20);
-            this.textBox1.TabIndex = 17;
+            this.txtBoxFreeText.Location = new System.Drawing.Point(584, 77);
+            this.txtBoxFreeText.Name = "txtBoxFreeText";
+            this.txtBoxFreeText.Size = new System.Drawing.Size(190, 20);
+            this.txtBoxFreeText.TabIndex = 17;
             // 
-            // button1
+            // btnFreeText
             // 
-            this.button1.Location = new System.Drawing.Point(505, 76);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 18;
-            this.button1.Text = "GO!";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnFreeText.Location = new System.Drawing.Point(505, 76);
+            this.btnFreeText.Name = "btnFreeText";
+            this.btnFreeText.Size = new System.Drawing.Size(75, 23);
+            this.btnFreeText.TabIndex = 18;
+            this.btnFreeText.Text = "GO!";
+            this.btnFreeText.UseVisualStyleBackColor = true;
+            this.btnFreeText.Click += new System.EventHandler(this.btnFreeText_Click);
             // 
             // pictureBox2
             // 
@@ -322,8 +323,8 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.LightSteelBlue;
             this.ClientSize = new System.Drawing.Size(892, 513);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.btnFreeText);
+            this.Controls.Add(this.txtBoxFreeText);
             this.Controls.Add(this.checkBox2);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.pictureBox2);
@@ -376,8 +377,8 @@
         private System.Windows.Forms.DataGridView dataGridViewFriendsComments;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox txtBoxFreeText;
+        private System.Windows.Forms.Button btnFreeText;
         private System.Windows.Forms.DataGridViewTextBoxColumn Comments;
     }
 }

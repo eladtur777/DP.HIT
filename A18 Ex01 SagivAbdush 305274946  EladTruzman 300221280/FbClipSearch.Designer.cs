@@ -28,24 +28,27 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnClipSearch = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
+            this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
-            // button1
+            // btnClipSearch
             // 
-            this.button1.Location = new System.Drawing.Point(34, 29);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnClipSearch.Location = new System.Drawing.Point(34, 29);
+            this.btnClipSearch.Name = "btnClipSearch";
+            this.btnClipSearch.Size = new System.Drawing.Size(75, 23);
+            this.btnClipSearch.TabIndex = 0;
+            this.btnClipSearch.Text = "GO!";
+            this.btnClipSearch.UseVisualStyleBackColor = true;
+            this.btnClipSearch.Click += new System.EventHandler(this.btnClipSearch_Click);
             // 
             // textBox1
             // 
@@ -58,6 +61,10 @@
             // 
             this.splitContainer1.Location = new System.Drawing.Point(-3, 166);
             this.splitContainer1.Name = "splitContainer1";
+            // 
+            // splitContainer1.Panel1
+            // 
+            this.splitContainer1.Panel1.Controls.Add(this.dataGridView1);
             // 
             // splitContainer1.Panel2
             // 
@@ -75,6 +82,14 @@
             this.webBrowser1.Size = new System.Drawing.Size(369, 278);
             this.webBrowser1.TabIndex = 0;
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(3, 0);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(378, 278);
+            this.dataGridView1.TabIndex = 0;
+            // 
             // FbClipSearch
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -82,12 +97,14 @@
             this.ClientSize = new System.Drawing.Size(750, 443);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnClipSearch);
             this.Name = "FbClipSearch";
             this.Text = "FbClipSearch";
+            this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -95,9 +112,10 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnClipSearch;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.WebBrowser webBrowser1;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }

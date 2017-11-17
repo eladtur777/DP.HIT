@@ -319,6 +319,12 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280
           
         }
 
+        private void btnFreeText_Click(object sender, EventArgs e)
+        {
+         //   txtBoxFreeText.
+
+
+        }
     }
 
     
