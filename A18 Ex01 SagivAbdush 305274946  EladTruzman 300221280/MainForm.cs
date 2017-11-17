@@ -27,7 +27,7 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280
             InitializeComponent();
             MainFormWF = new MainFormWF();
             m_UserBasicDetails = new Dictionary<GeneralEnum.E_UserBasicDetails, string>();
-             FacebookWrapper.FacebookService.s_CollectionLimit = 200;
+             FacebookWrapper.FacebookService.s_CollectionLimit = 50;
             //FacebookWrapper.FacebookService.s_FbApiVersion = 2.8f;
         }
 

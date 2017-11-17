@@ -36,39 +36,36 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280.FbTripAdvisorLog
 
         public Dictionary<string, Image> FriendsPlacesBySpecificLocation(LocationSearch i_LocationList)
         {
-            //FacebookObjectCollection<Page> books = FacebookService.GetCollection<Page>(GeneralEnum.E_MainTabType.books.ToString());
-            //dynamic actionsDataBooks = FacebookService.GetDynamicData(GeneralEnum.E_MainTabType.books.ToString());
 
             m_FriendsPlacesPictures = new Dictionary<string, Image>();
             FacebookObjectCollection<Page> friends = FacebookService.GetCollection<Page>(GeneralEnum.E_MainTabType.friends.ToString());
             dynamic actionsDataFriends = FacebookService.GetDynamicData(GeneralEnum.E_MainTabType.friends.ToString());
             FacebookObjectCollection<Post> friendPost;
-            PicturesColleciton friendPictures;
             m_FriendPostsList.Clear();
             int innerIndex = 0;
+      
+            FacebookObjectCollection<Photo> photosTagedIn = new FacebookObjectCollection<Photo>();
             for (int i = 0; i < friends.Count; i++)
             {
-                // friends[i].PhotosTaggedIn[i]
 
+                photosTagedIn.Add(friends[i].PhotosTaggedIn[i]);
                 friendPost = friends[i].Posts;
-  
+                Boolean isAllreadyIn = true;
                 string LocationPlace = i_LocationList.General;
                 List<string> WordsList = new List<string>();
                 char[] delimiterChars = {' ', ',', '.', '\t','-','_' };
                 string[] words = LocationPlace.Split(delimiterChars);
-            
                 for (int j = 0; j < friendPost.Count; j++)
                 {
-
                     if (friendPost[j].Place != null)
                     {
-                        foreach (string word in words)
+                        for(int k = 0; k < words.Length && isAllreadyIn ; k++) 
                         {
-                            if (!string.IsNullOrEmpty(word))
+                            if (!string.IsNullOrEmpty(words[k]))
                             {
-                                if (friendPost[j].Place.Name.ToUpper().Contains(word.ToUpper()))
+                                if (friendPost[j].Place.Name.ToUpper().Contains(words[k].ToUpper()))
                                 {
-                                   
+                                    isAllreadyIn = false;
                                     //Fill friends profile image list 
                                     m_FriendsPlacesPictures.Add(friends[i].Name, friends[i].ImageSquare);
                                     FriendPostsToFill = new FriendPosts();

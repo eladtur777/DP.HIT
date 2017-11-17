@@ -51,15 +51,15 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.LogOutBtn = new System.Windows.Forms.PictureBox();
-            this.userImageProfile = new System.Windows.Forms.PictureBox();
-            this.loginBtn = new System.Windows.Forms.PictureBox();
             this.label7 = new System.Windows.Forms.Label();
             this.lblLatestPost = new System.Windows.Forms.Label();
             this.btnTripAdvisor = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.LogOutBtn = new System.Windows.Forms.PictureBox();
+            this.userImageProfile = new System.Windows.Forms.PictureBox();
+            this.loginBtn = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMusic)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -317,38 +317,6 @@
             this.label6.Text = "Email:";
             this.label6.Visible = false;
             // 
-            // LogOutBtn
-            // 
-            this.LogOutBtn.Image = global::A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280.Properties.Resources.Custom_logOut;
-            this.LogOutBtn.Location = new System.Drawing.Point(706, 4);
-            this.LogOutBtn.Name = "LogOutBtn";
-            this.LogOutBtn.Size = new System.Drawing.Size(41, 39);
-            this.LogOutBtn.TabIndex = 24;
-            this.LogOutBtn.TabStop = false;
-            this.LogOutBtn.Click += new System.EventHandler(this.LogOutBtn_Click);
-            this.LogOutBtn.MouseHover += new System.EventHandler(this.LogOutBtn_MouseHover);
-            // 
-            // userImageProfile
-            // 
-            this.userImageProfile.BackColor = System.Drawing.Color.Transparent;
-            this.userImageProfile.Location = new System.Drawing.Point(13, 71);
-            this.userImageProfile.Name = "userImageProfile";
-            this.userImageProfile.Size = new System.Drawing.Size(141, 152);
-            this.userImageProfile.TabIndex = 23;
-            this.userImageProfile.TabStop = false;
-            // 
-            // loginBtn
-            // 
-            this.loginBtn.BackColor = System.Drawing.Color.Transparent;
-            this.loginBtn.Image = global::A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280.Properties.Resources.facebook_signBtn;
-            this.loginBtn.Location = new System.Drawing.Point(1, 1);
-            this.loginBtn.Name = "loginBtn";
-            this.loginBtn.Size = new System.Drawing.Size(190, 67);
-            this.loginBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.loginBtn.TabIndex = 22;
-            this.loginBtn.TabStop = false;
-            this.loginBtn.Click += new System.EventHandler(this.loginBtn_Click);
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -391,6 +359,7 @@
             this.button2.TabIndex = 28;
             this.button2.Text = "GO!";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // label8
             // 
@@ -409,6 +378,38 @@
             this.label9.Size = new System.Drawing.Size(49, 13);
             this.label9.TabIndex = 30;
             this.label9.Text = "Feature2";
+            // 
+            // LogOutBtn
+            // 
+            this.LogOutBtn.Image = global::A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280.Properties.Resources.Custom_logOut;
+            this.LogOutBtn.Location = new System.Drawing.Point(706, 4);
+            this.LogOutBtn.Name = "LogOutBtn";
+            this.LogOutBtn.Size = new System.Drawing.Size(41, 39);
+            this.LogOutBtn.TabIndex = 24;
+            this.LogOutBtn.TabStop = false;
+            this.LogOutBtn.Click += new System.EventHandler(this.LogOutBtn_Click);
+            this.LogOutBtn.MouseHover += new System.EventHandler(this.LogOutBtn_MouseHover);
+            // 
+            // userImageProfile
+            // 
+            this.userImageProfile.BackColor = System.Drawing.Color.Transparent;
+            this.userImageProfile.Location = new System.Drawing.Point(13, 71);
+            this.userImageProfile.Name = "userImageProfile";
+            this.userImageProfile.Size = new System.Drawing.Size(141, 152);
+            this.userImageProfile.TabIndex = 23;
+            this.userImageProfile.TabStop = false;
+            // 
+            // loginBtn
+            // 
+            this.loginBtn.BackColor = System.Drawing.Color.Transparent;
+            this.loginBtn.Image = global::A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280.Properties.Resources.facebook_signBtn;
+            this.loginBtn.Location = new System.Drawing.Point(1, 1);
+            this.loginBtn.Name = "loginBtn";
+            this.loginBtn.Size = new System.Drawing.Size(190, 67);
+            this.loginBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.loginBtn.TabIndex = 22;
+            this.loginBtn.TabStop = false;
+            this.loginBtn.Click += new System.EventHandler(this.loginBtn_Click);
             // 
             // MainForm
             // 

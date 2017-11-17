@@ -29,6 +29,7 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280
         public FbTripAdvisorForm()
         {
             InitializeComponent();
+            FacebookWrapper.FacebookService.s_CollectionLimit = 50;
             this.txtBoxSearch.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             this.txtBoxSearch.AutoCompleteSource = AutoCompleteSource.CustomSource;
             googleMapsUrl = new StringBuilder();
@@ -150,11 +151,8 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280
         {
             if (comboBoxSearchResults.SelectedValue != null)
             {
-                //comboBoxSearchResults.SelectedText.ToString()
-                //TripAdvisorWF tripAdvisorWF = new TripAdvisorWF();
                 LocationSearch locationSearch = new LocationSearch();
                 locationSearch.General = comboBoxSearchResults.SelectedValue.ToString();
-                //Dictionary<string, Image> m_FriendsPlaces = new Dictionary<string, Image>();
                 m_FriendsPlaces = tripAdvisorWF.FindFriendsPlacesBySpecificLocation(locationSearch);
 
                 int i = 0;
@@ -179,34 +177,40 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280
 
             }
 
-            else if (!string.IsNullOrEmpty(txtBoxSearch.Text))
+            else
             {
-              
-                LocationSearch locationSearch = new LocationSearch();
-                locationSearch.General = txtBoxSearch.Text;
-            
-                m_FriendsPlaces = tripAdvisorWF.FindFriendsPlacesBySpecificLocation(locationSearch);
+                MessageBox.Show("Please select your location from the list options");
 
-                int i = 0;
-                this.dataGridViewLocationsFriends.Rows.Clear();
-                PictureBox Pb;
-                if (m_FriendsPlaces.Count > 0)
-                    foreach (var key in m_FriendsPlaces.Keys)
-                    {
-                        if (m_FriendsPlaces[key] != null)
-                        {
-                            Pb = new PictureBox();
-                            Pb.Image = m_FriendsPlaces[key];
-                            this.dataGridViewLocationsFriends.Rows.Insert(i, key, key, Pb.Image);
-                            i++;
-                        }
-                    }
-
-                foreach (DataGridViewRow row in dataGridViewLocationsFriends.Rows)
-                {
-                    row.Height = 52;
-                }
             }
+
+            //else if (!string.IsNullOrEmpty(txtBoxSearch.Text))
+            //{
+              
+            //    LocationSearch locationSearch = new LocationSearch();
+            //    locationSearch.General = txtBoxSearch.Text;
+            
+            //    m_FriendsPlaces = tripAdvisorWF.FindFriendsPlacesBySpecificLocation(locationSearch);
+
+            //    int i = 0;
+            //    this.dataGridViewLocationsFriends.Rows.Clear();
+            //    PictureBox Pb;
+            //    if (m_FriendsPlaces.Count > 0)
+            //        foreach (var key in m_FriendsPlaces.Keys)
+            //        {
+            //            if (m_FriendsPlaces[key] != null)
+            //            {
+            //                Pb = new PictureBox();
+            //                Pb.Image = m_FriendsPlaces[key];
+            //                this.dataGridViewLocationsFriends.Rows.Insert(i, key, key, Pb.Image);
+            //                i++;
+            //            }
+            //        }
+
+            //    foreach (DataGridViewRow row in dataGridViewLocationsFriends.Rows)
+            //    {
+            //        row.Height = 52;
+            //    }
+            //}
         
             }
 
@@ -265,21 +269,33 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280
                         {
                             Label lb = new Label();
                             lb.Text = m_FriendPostsList[row].FriendComments[i].Message.ToString();
-                            lblForScreen.Add(lb);
+
+                            DataGridViewRow newRowToAdd = (DataGridViewRow)dataGridViewFriendsComments.Rows[0].Clone();
+                            newRowToAdd.Cells[0].Value = lb.Text;
+                            dataGridViewFriendsComments.Rows.Add(newRowToAdd);
+
+                           // dataGridViewFriendsComments.Rows[i].Cells[0].Value = lb.Text;
+                           // lblForScreen.Add(lb);
                         }
                       
                     }
                 }
-                List<string> liststrings = new List<string>();
+              //  List<string> liststrings = new List<string>();
 
-                for (int i = 0; i< liststrings.Count; i++)
-                {
-                    liststrings.Add(lblForScreen[i].Text);
+               // for (int i = 0; i< liststrings.Count; i++)
+               // {
+                 //   liststrings.Add(lblForScreen[i].Text);
                 
 
-                }
+               // }
 
-                dataGridViewFriendsComments.DataSource = lblForScreen;
+              //  for(int i = 0 ; i < lblForScreen.Count ; i++)
+               // {
+                    
+                //    dataGridViewFriendsComments.Rows[i].Cells[0].Value = liststrings[i].;
+               // }
+
+                  //  dataGridViewFriendsComments.DataSource = lblForScreen;
                 //foreach (var item in lblForScreen)
                 //{
                 //    if (!string.IsNullOrEmpty(m_FriendPostsList[row].FriendComments[1].Message))
