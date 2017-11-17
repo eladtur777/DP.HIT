@@ -44,11 +44,11 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280.FbTripAdvisorLog
             m_FriendPostsList.Clear();
             int innerIndex = 0;
       
-            FacebookObjectCollection<Photo> photosTagedIn = new FacebookObjectCollection<Photo>();
+          
             for (int i = 0; i < friends.Count; i++)
             {
 
-                photosTagedIn.Add(friends[i].PhotosTaggedIn[i]);
+              
                 friendPost = friends[i].Posts;
                 Boolean isAllreadyIn = true;
                 string LocationPlace = i_LocationList.General;
