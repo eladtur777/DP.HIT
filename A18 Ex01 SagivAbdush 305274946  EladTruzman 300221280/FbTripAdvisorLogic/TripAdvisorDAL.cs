@@ -39,14 +39,33 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280.FbTripAdvisorLog
             FacebookObjectCollection<Page> friends = FacebookService.GetCollection<Page>(GeneralEnum.E_MainTabType.friends.ToString());
             dynamic actionsDataFriends = FacebookService.GetDynamicData(GeneralEnum.E_MainTabType.friends.ToString());
             FacebookObjectCollection<Post> friendPost;
+            FacebookObjectCollection<Page> friendPost1;
+           
+           // ,friends{ tagged_places{ place} }
             m_FriendPostsList.Clear();
             int innerIndex = 0;
-      
-          
+
+            //try
+            //{
+            //    FacebookObjectCollection<Page> PhotosTaggedIn = FacebookService.GetCollection<Page>("Photos_Tagged_In");
+            //}
+            //catch (Exception)
+            //{
+
+            //    throw;
+            //}
+            //dynamic PhotoTaggedIn = FacebookService.GetDynamicData("PhotosTaggedIn");
+
+
             for (int i = 0; i < friends.Count; i++)
             {
+                //Page place = new Page();
+                //if (friends[i].WallPosts[i].TaggedUsers != null && friends[i].WallPosts[i].TaggedUsers[i] != null)
+                //{ 
+                    
+                //    place = friends[i].WallPosts[i].TaggedUsers[i].PostsTaggedIn[i].Place;
+                //}
 
-              
                 friendPost = friends[i].Posts;
                 Boolean isAllreadyIn = true;
                 string LocationPlace = i_LocationList.General;

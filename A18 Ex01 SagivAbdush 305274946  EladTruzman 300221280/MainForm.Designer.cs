@@ -54,7 +54,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.lblLatestPost = new System.Windows.Forms.Label();
             this.btnTripAdvisor = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnClipSearch = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.LogOutBtn = new System.Windows.Forms.PictureBox();
@@ -343,6 +343,7 @@
             // 
             // btnTripAdvisor
             // 
+            this.btnTripAdvisor.Enabled = false;
             this.btnTripAdvisor.Location = new System.Drawing.Point(534, 103);
             this.btnTripAdvisor.Name = "btnTripAdvisor";
             this.btnTripAdvisor.Size = new System.Drawing.Size(75, 23);
@@ -351,15 +352,16 @@
             this.btnTripAdvisor.UseVisualStyleBackColor = true;
             this.btnTripAdvisor.Click += new System.EventHandler(this.btnTripAdvisor_Click);
             // 
-            // button2
+            // btnClipSearch
             // 
-            this.button2.Location = new System.Drawing.Point(534, 153);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 28;
-            this.button2.Text = "GO!";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btnClipSearch.Enabled = false;
+            this.btnClipSearch.Location = new System.Drawing.Point(534, 153);
+            this.btnClipSearch.Name = "btnClipSearch";
+            this.btnClipSearch.Size = new System.Drawing.Size(75, 23);
+            this.btnClipSearch.TabIndex = 28;
+            this.btnClipSearch.Text = "GO!";
+            this.btnClipSearch.UseVisualStyleBackColor = true;
+            this.btnClipSearch.Click += new System.EventHandler(this.btnClipSearch_Click);
             // 
             // label8
             // 
@@ -420,7 +422,7 @@
             this.ClientSize = new System.Drawing.Size(747, 502);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btnClipSearch);
             this.Controls.Add(this.btnTripAdvisor);
             this.Controls.Add(this.lblLatestPost);
             this.Controls.Add(this.label7);
@@ -493,7 +495,7 @@
         private System.Windows.Forms.TabPage MyFriends;
         private System.Windows.Forms.DataGridView dataGridViewFriends;
         private System.Windows.Forms.Button btnTripAdvisor;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnClipSearch;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
     }

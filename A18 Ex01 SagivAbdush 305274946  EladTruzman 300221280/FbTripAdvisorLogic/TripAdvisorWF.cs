@@ -16,10 +16,6 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280.FbTripAdvisorLog
             get { return m_FriendsPlaces; }
         }
 
-
-        //string hhh= UserLoginInstance.Instance.m_LoggedInUser.FirstName;
-        // EnumTabType
-
         public Dictionary<string, Image> FindFriendsPlacesBySpecificLocation(LocationSearch i_LocationList)
         {
 

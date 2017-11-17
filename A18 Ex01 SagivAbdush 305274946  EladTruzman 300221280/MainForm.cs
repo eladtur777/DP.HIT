@@ -1,12 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
-using FacebookWrapper.ObjectModel;
 using FacebookWrapper;
 using A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280.MainFormLogic;
 
@@ -115,6 +109,8 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280
             lblUserGender.Visible = true;
             lblUserReligion.Visible = true;
             lblLatestPost.Visible = true;
+            btnClipSearch.Enabled = true;
+            btnTripAdvisor.Enabled = true;
         }
 
         private void loginBtn_Click(object sender, EventArgs e)
@@ -188,6 +184,8 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280
             lblLatestPost.Visible = false;
             btnPostPublish.Enabled = false;
             dataGridViewMusic.DataSource = null;
+            btnClipSearch.Enabled = false;
+            btnTripAdvisor.Enabled = false;
         }
 
         private void LogOutBtn_MouseHover(object sender, EventArgs e)
@@ -243,7 +241,9 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280
 
      
 
-        private void button2_Click(object sender, EventArgs e)
+    
+
+        private void btnClipSearch_Click(object sender, EventArgs e)
         {
             FbClipSearch nn = new FbClipSearch();
             nn.Show();
