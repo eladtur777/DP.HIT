@@ -1,77 +1,49 @@
-﻿using A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280.FbTripAdvisorLogic;
-using FacebookWrapper;
+﻿using FacebookWrapper;
 using FacebookWrapper.ObjectModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Windows.Forms;
 
 namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280.FbClipSearchLogic
 {
-//    struct friendPost
-//    {
-//        public Page m_Friend;
-//        public Post m_FriendPost;
+    //    struct friendPost
+    //    {
+    //        public Page m_Friend;
+    //        public Post m_FriendPost;
 
-//        public friendPost(Page i_Friend, Post i_FriendPost)
-//        {
-//            m_Friend = i_Friend;
-//            m_FriendPost = i_FriendPost;
-//        }
-//    }
+    //        public friendPost(Page i_Friend, Post i_FriendPost)
+    //        {
+    //            m_Friend = i_Friend;
+    //            m_FriendPost = i_FriendPost;
+    //        }
+    //    }
 
-   
 
-   public class ClipSearchDAL
+
+    public class ClipSearchDAL
     {
-        private FriendPosts m_FriendPosts;
-        private Dictionary<int, Post> m_FriendPostsList = new Dictionary<int, Post>(50);
-        private Dictionary<Page, Post> friendPostDictionary = new Dictionary<Page, Post>();
-        public Dictionary<int, Post> FriendPostsList
+        private Dictionary<int, FriendPostsClipSearch> m_friendPostDictionary;
+
+        public Dictionary<int, FriendPostsClipSearch> FriendPostsDictionary
         {
-            get { return m_FriendPostsList; }
+            get { return m_friendPostDictionary; }
         }
 
-        private void FullMatch(string[] i_WordsToCheck, FacebookObjectCollection<Page> i_Friends)
+        public ClipSearchDAL()
         {
-           // List<friendPost> friendPosts = new List<friendPost>();
-            bool isFullyMatchd;
-
-            foreach (Page friend in i_Friends)
-            {
-                foreach (Post post in friend.WallPosts)
-                {
-                    if (post.Type == Post.eType.video)
-                    {
-                        isFullyMatchd = true;
-                        foreach (string word in i_WordsToCheck)
-                        {
-                            if (!post.Name.Contains(word) && !post.Name.ToUpper().Contains(word.ToUpper()))
-                            {
-                                isFullyMatchd = false;
-                                break;
-                            }
-                        }
-
-                        if (isFullyMatchd)
-                        {
-                        friendPostDictionary.Add(friend, post);
-                            //friendPosts.Add(new friendPost(friend, post));
-                        }
-                    }
-                }
-            }
-
-           // return friendPostDictionary;
-
+            m_friendPostDictionary = new Dictionary<int, FriendPostsClipSearch>();
         }
 
         private void partiallyMatch(string[] i_WordsToCheck, FacebookObjectCollection<Page> i_Friends)
         {
-           // List<friendPost> friendPosts = new List<friendPost>();
+            FriendPostsClipSearch relevantPost = new FriendPostsClipSearch();
             int totalWordsToCheck = i_WordsToCheck.Length / 2 + 1;
+            int placeID = 0;
             int counterOfMatchWords;
 
+            m_friendPostDictionary.Clear();
             foreach (Page friend in i_Friends)
             {
                 foreach (Post post in friend.WallPosts)
@@ -90,18 +62,34 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280.FbClipSearchLogi
 
                     if (counterOfMatchWords >= totalWordsToCheck)
                     {
-                      //  friendPosts.Add(new friendPost(friend, post));
-                    friendPostDictionary.Add(friend, post);
-                   }
+                        try
+                        {
+                            relevantPost = new FriendPostsClipSearch();
+                            relevantPost.updateValues(
+                                friend.Id,
+                                post.CreatedTime.Value,
+                                friend.ImageSmall,
+                                friend.Name,
+                                post.Description,
+                                post.Name,
+                                post.Message,
+                                post.Link,
+                                post.Comments,
+                                post.LikedBy
+                                );
+                            m_friendPostDictionary.Add(placeID, relevantPost);
+                            placeID++;
+                        }
+                        catch
+                        {
+                            throw new Exception("Couldn't find relevant posts properly");
+                        }
+                    }
                 }
-
-               // return friendPosts;
             }
-
-           // return friendPosts;
         }
 
-        public Dictionary<Page,Post> GetRelatedPosts(string i_TitleToSearch)
+        public Dictionary<int, FriendPostsClipSearch> GetRelatedPosts(string i_TitleToSearch)
         {
             string[] titleSeperatedToWords;
             FacebookObjectCollection<Page> friends = FacebookService.GetCollection<Page>(GeneralEnum.E_MainTabType.friends.ToString());
@@ -109,7 +97,7 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280.FbClipSearchLogi
             titleSeperatedToWords = i_TitleToSearch.Split(',', ' ', '.', '\t');
             partiallyMatch(titleSeperatedToWords, friends);
 
-            return friendPostDictionary;
+            return m_friendPostDictionary;
         }
     }
 }

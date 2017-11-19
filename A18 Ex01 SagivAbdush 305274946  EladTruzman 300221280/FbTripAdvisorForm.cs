@@ -44,6 +44,7 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280
                 this.dataGridViewLocationsFriends.Rows.Clear();
                 PictureBox Pb;
                 if (m_FriendsPlaces.Count > 0)
+                {
                     foreach (var key in m_FriendsPlaces.Keys)
                     {
                         if (m_FriendsPlaces[key] != null)
@@ -55,9 +56,15 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280
                         }
                     }
 
-                foreach (DataGridViewRow row in dataGridViewLocationsFriends.Rows)
+                    foreach (DataGridViewRow row in dataGridViewLocationsFriends.Rows)
+                    {
+                        row.Height = 52;
+                    }
+                }
+                else
                 {
-                    row.Height = 52;
+                    this.dataGridViewLocationsFriends.Rows.Insert(0, "No results", "No results", null);
+
                 }
             }
 
@@ -126,6 +133,7 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280
                 this.dataGridViewLocationsFriends.Rows.Clear();
                 PictureBox Pb;
                 if (m_FriendsPlaces.Count > 0)
+                {
                     foreach (var key in m_FriendsPlaces.Keys)
                     {
                         if (m_FriendsPlaces[key] != null)
@@ -137,9 +145,15 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280
                         }
                     }
 
-                foreach (DataGridViewRow row in dataGridViewLocationsFriends.Rows)
+                    foreach (DataGridViewRow row in dataGridViewLocationsFriends.Rows)
+                    {
+                        row.Height = 52;
+                    }
+                }
+                else
                 {
-                    row.Height = 52;
+                    this.dataGridViewLocationsFriends.Rows.Insert(0, "No results", "No results", null);
+
                 }
             }
 

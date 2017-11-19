@@ -19,7 +19,7 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280.Properties {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
@@ -57,6 +57,26 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280.Properties {
             }
             set {
                 resourceCulture = value;
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ClipSearch {
+            get {
+                object obj = ResourceManager.GetObject("ClipSearch", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ClipSearch2 {
+            get {
+                object obj = ResourceManager.GetObject("ClipSearch2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
@@ -133,6 +153,16 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Map {
+            get {
+                object obj = ResourceManager.GetObject("Map", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap search_b128 {
             get {
                 object obj = ResourceManager.GetObject("search-b128", resourceCulture);
@@ -156,6 +186,16 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280.Properties {
         internal static System.Drawing.Bitmap simpsonFinal {
             get {
                 object obj = ResourceManager.GetObject("simpsonFinal", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap TripAdvisorLogo {
+            get {
+                object obj = ResourceManager.GetObject("TripAdvisorLogo", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

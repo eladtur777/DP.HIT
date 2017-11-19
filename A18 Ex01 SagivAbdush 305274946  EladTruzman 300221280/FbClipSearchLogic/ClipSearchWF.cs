@@ -9,8 +9,7 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280.FbClipSearchLogi
     public class ClipSearchWF
     {
 
-       
-        public Dictionary<Page, Post> FriendsClipPostSResults(string i_TitleToSearch)
+        public Dictionary<int, FriendPostsClipSearch> FriendsClipPostSResults(string i_TitleToSearch)
         {
             ClipSearchDAL FriendsClipPost = new ClipSearchDAL();
             return FriendsClipPost.GetRelatedPosts(i_TitleToSearch);

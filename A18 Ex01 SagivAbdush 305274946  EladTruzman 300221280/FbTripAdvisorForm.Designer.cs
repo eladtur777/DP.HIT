@@ -173,9 +173,9 @@
             // pictureBox3
             // 
             this.pictureBox3.Image = global::A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280.Properties.Resources.Map;
-            this.pictureBox3.Location = new System.Drawing.Point(342, 12);
+            this.pictureBox3.Location = new System.Drawing.Point(360, 12);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(188, 123);
+            this.pictureBox3.Size = new System.Drawing.Size(170, 123);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox3.TabIndex = 1;
             this.pictureBox3.TabStop = false;

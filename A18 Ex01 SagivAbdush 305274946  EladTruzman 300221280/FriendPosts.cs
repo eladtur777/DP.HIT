@@ -30,18 +30,20 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280.FbTripAdvisorLog
             m_Message = string.Empty;
             m_FriendComments = new FacebookObjectCollection<Comment>();
             m_LikedBy = new FacebookObjectCollection<User>();
-       
-       
         }
 
-        public string PictureUrl { get => m_PictureUrl; set => m_PictureUrl = value; }
-        public string PostDescription { get => m_PostDescription; set => m_PostDescription = value; }
-        public string Place { get => m_Place; set => m_Place = value; }
-        public string Name { get => m_Name; set => m_Name = value; }
-        public string Message { get => m_Message; set => m_Message = value; }
-        public string FriendId { get => m_FriendId; set => m_FriendId = value; }
-        public FacebookObjectCollection<Comment> FriendComments { get => m_FriendComments; set => m_FriendComments = value; }
-        public DateTime PostedDateTime { get => m_PostedDateTime; set => m_PostedDateTime = value; }
-        public FacebookObjectCollection<User> LikedBy { get => m_LikedBy; set => m_LikedBy = value; }
+
+        public FacebookObjectCollection<Comment> FriendComments { get { return m_FriendComments; } set { m_FriendComments = value; } }
+        public DateTime PostedDateTime { get { return m_PostedDateTime; } set { m_PostedDateTime = value; } }
+        public FacebookObjectCollection<User> LikedBy { get { return m_LikedBy; } set { m_LikedBy = value; } }
+
+
+        public string PictureUrl { get { return m_PictureUrl; } set { m_PictureUrl = value; } }
+        public string PostDescription { get { return m_PostDescription; } set { m_PostDescription = value; } }
+        public string Place { get { return m_Place; } set { m_Place = value; } }
+        public string Name { get { return m_Name; } set { m_Name = value; } }
+        public string Message { get { return m_Message; } set { m_Message = value; } }
+        public string FriendId { get { return m_FriendId; } set { m_FriendId = value; } }
+
     }
 }

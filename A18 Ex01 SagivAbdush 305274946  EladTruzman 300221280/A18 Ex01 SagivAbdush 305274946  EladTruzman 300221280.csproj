@@ -10,6 +10,7 @@
     <AssemblyName>A18 Ex01 SagivAbdush 305274946  EladTruzman 300221280</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -51,7 +52,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FbTripAdvisorLogic\LocationSearch.cs" />
+    <Compile Include="FbClipSearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FbClipSearch.Designer.cs">
+      <DependentUpon>FbClipSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FbClipSearchLogic\ClipSearchDAL.cs" />
+    <Compile Include="FbClipSearchLogic\ClipSearchWF.cs" />
+    <Compile Include="FbClipSearchLogic\FriendPostsClipSearch.cs" />
+    <Compile Include="FriendPosts.cs" />
+    <Compile Include="GoogleMapLogic\GoogleMapHttpRequest.cs" />
+    <Compile Include="GoogleMapLogic\Prediction.cs" />
+    <Compile Include="GoogleMapLogic\RootObject.cs" />
+    <Compile Include="LocationSearch.cs" />
     <Compile Include="GeneralEnum.cs" />
     <Compile Include="FbTripAdvisorLogic\TripAdvisorDAL.cs" />
     <Compile Include="FbTripAdvisorLogic\TripAdvisorWF.cs" />
@@ -61,7 +75,6 @@
     <Compile Include="FbTripAdvisorForm.Designer.cs">
       <DependentUpon>FbTripAdvisorForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="GoogleLocations.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -72,7 +85,10 @@
     <Compile Include="MainFormLogic\MainFormWF.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="FbConnect\UserSingleTonSession.cs" />
+    <Compile Include="FbConnect\UserLoginInstance.cs" />
+    <EmbeddedResource Include="FbClipSearch.resx">
+      <DependentUpon>FbClipSearch.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FbTripAdvisorForm.resx">
       <DependentUpon>FbTripAdvisorForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -84,6 +100,7 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="app.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -122,6 +139,19 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Custom-logOut.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ClipSearch.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search-b128.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Map.png" />
+    <None Include="Resources\TripAdvisorLogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ClipSearch2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
