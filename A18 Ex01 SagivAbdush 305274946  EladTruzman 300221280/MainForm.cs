@@ -4,90 +4,67 @@ using System.Windows.Forms;
 using FacebookWrapper;
 using A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280.MainFormLogic;
 
-
 namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280
 {
     public partial class MainForm : Form
-    {
-
+    { 
         private MainFormWF MainFormWF;
-        Dictionary<GeneralEnum.E_UserBasicDetails, string> m_UserBasicDetails;
-
-        public enum E_TabType { music = 1, television, movies, books, friends };
-
+        private Dictionary<GeneralEnum.eUserBasicDetails, string> m_UserBasicDetails;
 
         public MainForm()
         {
             InitializeComponent();
             MainFormWF = new MainFormWF();
-            m_UserBasicDetails = new Dictionary<GeneralEnum.E_UserBasicDetails, string>();
-             FacebookWrapper.FacebookService.s_CollectionLimit = 50;
-            //FacebookWrapper.FacebookService.s_FbApiVersion = 2.8f;
+            m_UserBasicDetails = new Dictionary<GeneralEnum.eUserBasicDetails, string>();
+            FacebookService.s_CollectionLimit = 50;
         }
 
+       
         private void fillTabs()
         {
             dataGridViewMusic.DataSource = MainFormWF.GetUserMusic();
-
             for (int i = 7; i < dataGridViewMusic.Columns.Count; i++)
             {
                 dataGridViewMusic.Columns[i].Visible = false;
             }
 
-            dataGridViewBooks.DataSource = MainFormWF.GetUserBooks();
-
-            //for (int i = 7; i < dataGridViewBooks.Columns.Count; i++)
-            //{
-            //    dataGridViewBooks.Columns[i].Visible = false;
-            //}
-
+            dataGridViewBooks.DataSource = MainFormWF.GetUserBooks();          
             dataGridViewMovies.DataSource = MainFormWF.GetUserMovies();
-
-            //for (int i = 7; i < dataGridViewMovies.Columns.Count; i++)
-            //{
-            //    dataGridViewMovies.Columns[i].Visible = false;
-            //}
-
             dataGridViewFriends.DataSource = MainFormWF.GetUserFriends();
-
-            //for (int i = 7; i < dataGridViewFriends.Columns.Count; i++)
-            //{
-            //    dataGridViewFriends.Columns[i].Visible = false;
-            //}
         }
 
-        private void LoadUserDetailsLabelsToScreen()
+        private void loadUserDetailsLabelsToScreen()
         {
             m_UserBasicDetails = MainFormWF.GetUserBasicDetails();
-            string name = Enum.GetName(typeof(GeneralEnum.E_UserBasicDetails),
-            GeneralEnum.E_UserBasicDetails.UserImage);
+            string name = Enum.GetName(typeof(GeneralEnum.eUserBasicDetails),
+            GeneralEnum.eUserBasicDetails.UserImage);
 
             foreach (var key in m_UserBasicDetails.Keys)
             {
                 switch (key)
                 {
-                    case GeneralEnum.E_UserBasicDetails.UserImage:
+                    case GeneralEnum.eUserBasicDetails.UserImage:
                         userImageProfile.LoadAsync(m_UserBasicDetails[key]);
                         break;
-                    case GeneralEnum.E_UserBasicDetails.FirstName:
+                    case GeneralEnum.eUserBasicDetails.FirstName:
                         lblUserFirstName.Text = m_UserBasicDetails[key];
                         break;
-                    case GeneralEnum.E_UserBasicDetails.LastName:
+                    case GeneralEnum.eUserBasicDetails.LastName:
                         lblUserLastName.Text = m_UserBasicDetails[key];
                         break;
-                    case GeneralEnum.E_UserBasicDetails.Birthday:
+                    case GeneralEnum.eUserBasicDetails.Birthday:
                         lblUserBirthDate.Text = m_UserBasicDetails[key];
                         break;
-                    case GeneralEnum.E_UserBasicDetails.Gender:
+                    case GeneralEnum.eUserBasicDetails.Gender:
                         lblUserGender.Text = m_UserBasicDetails[key];
                         break;
-                    case GeneralEnum.E_UserBasicDetails.Religion:
+                    case GeneralEnum.eUserBasicDetails.Religion:
                         lblUserReligion.Text = m_UserBasicDetails[key];
                         break;
-                    case GeneralEnum.E_UserBasicDetails.Email:
+                    case GeneralEnum.eUserBasicDetails.Email:
                         lblUserEmail.Text = m_UserBasicDetails[key];
                         break;
-                    case GeneralEnum.E_UserBasicDetails.PostMessage:
+                    case GeneralEnum.eUserBasicDetails.PostMessage:
                         lblLatestPost.Text = m_UserBasicDetails[key];
                         break;
                 }
@@ -111,6 +88,7 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280
             lblLatestPost.Visible = true;
             btnClipSearch.Enabled = true;
             btnTripAdvisor.Enabled = true;
+            loginBtn.Enabled = false;
         }
 
         private void loginBtn_Click(object sender, EventArgs e)
@@ -118,7 +96,7 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280
             string result = MainFormWF.InitializeFaceBookLogin();
             if (string.IsNullOrEmpty(result))
             {
-                LoadUserDetailsLabelsToScreen();
+                loadUserDetailsLabelsToScreen();
                 fillTabs();
             }
             else
@@ -127,37 +105,7 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280
             }
         }
 
-        private void LogOutBtn_Click(object sender, EventArgs e)
-        {
-            DialogResult resultFromLogoutDialog = MessageBox.Show("Are you sure you want to LogOut and Exit?",
-           "Important Question",
-            MessageBoxButtons.YesNo);
-
-            if (resultFromLogoutDialog == DialogResult.Yes)
-            {
-
-
-                if (UserLoginInstance.LoggedInUser != null)
-                {
-                    try
-                    {
-                        FacebookService.Logout(SuccessLogOut);
-                    }
-                    catch (Exception)
-                    {
-                        MessageBox.Show("LogOut problem, please Exit from App");
-                    }
-
-
-                }
-
-
-
-
-            }
-        }
-
-        private void ResetForm()
+        private void resetForm()
         {
             userImageProfile.Image = null;
             textBoxPostPublish.Enabled = false;
@@ -188,12 +136,6 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280
             btnTripAdvisor.Enabled = false;
         }
 
-        private void LogOutBtn_MouseHover(object sender, EventArgs e)
-        {
-            ToolTip toolTipForLogOutImgBtn = new ToolTip();
-            toolTipForLogOutImgBtn.SetToolTip(this.LogOutBtn, "Log-Out");
-        }
-
         private void btnPostPublish_Click(object sender, EventArgs e)
         {
             if (textBoxPostPublish.Text != string.Empty)
@@ -213,8 +155,8 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280
 
         private void btnTripAdvisor_Click(object sender, EventArgs e)
         {
-            FbTripAdvisorForm ta = new FbTripAdvisorForm();
-            ta.Show();
+            FbTripAdvisorForm tripAdvisorForm = new FbTripAdvisorForm();
+            tripAdvisorForm.ShowDialog();
         }
 
         private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
@@ -229,24 +171,46 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280
                 {
                     MessageBox.Show("LogOut problem, please Exit from App");
                 }
-
             }
         }
 
-        private void SuccessLogOut()
+        private void successLogOut()
         {
-            MessageBox.Show("Succesfuly Logout from App");
-
+            MessageBox.Show("Successfuly Logout from App");
         }
-
-     
-
-    
-
+  
         private void btnClipSearch_Click(object sender, EventArgs e)
         {
-            FbClipSearch nn = new FbClipSearch();
-            nn.Show();
+            FbClipSearch m_clipSearchForm = new FbClipSearch();
+            m_clipSearchForm.ShowDialog();         
+        }
+
+        private void logOutBtn_Click(object sender, EventArgs e)
+        {
+            DialogResult resultFromLogoutDialog = MessageBox.Show("Are you sure you want to LogOut and Exit?",
+           "Important Question",
+            MessageBoxButtons.YesNo);
+
+            if (resultFromLogoutDialog == DialogResult.Yes)
+            {
+                if (UserLoginInstance.LoggedInUser != null)
+                {
+                    try
+                    {
+                        FacebookService.Logout(successLogOut);
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("LogOut problem, please Exit from App");
+                    }
+                }
+            }
+        }
+
+        private void logOutBtn_MouseHover(object sender, EventArgs e)
+        {
+            ToolTip toolTipForLogOutImgBtn = new ToolTip();
+            toolTipForLogOutImgBtn.SetToolTip(this.LogOutBtn, "Log-Out");
         }
     }
 }

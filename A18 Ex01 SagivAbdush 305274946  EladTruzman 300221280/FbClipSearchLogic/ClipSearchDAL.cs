@@ -92,7 +92,7 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280.FbClipSearchLogi
         public Dictionary<int, FriendPostsClipSearch> GetRelatedPosts(string i_TitleToSearch)
         {
             string[] titleSeperatedToWords;
-            FacebookObjectCollection<Page> friends = FacebookService.GetCollection<Page>(GeneralEnum.E_MainTabType.friends.ToString());
+            FacebookObjectCollection<Page> friends = FacebookService.GetCollection<Page>(GeneralEnum.eMainTabType.friends.ToString());
 
             titleSeperatedToWords = i_TitleToSearch.Split(',', ' ', '.', '\t');
             partiallyMatch(titleSeperatedToWords, friends);

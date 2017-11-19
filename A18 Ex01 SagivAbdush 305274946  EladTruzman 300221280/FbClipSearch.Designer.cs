@@ -86,6 +86,7 @@
             // 
             // dataGridViewFriends
             // 
+            this.dataGridViewFriends.AllowUserToAddRows = false;
             this.dataGridViewFriends.AllowUserToDeleteRows = false;
             this.dataGridViewFriends.BackgroundColor = System.Drawing.Color.SlateGray;
             this.dataGridViewFriends.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -130,6 +131,8 @@
             // 
             // dataGridViewMoreDetails
             // 
+            this.dataGridViewMoreDetails.AllowUserToAddRows = false;
+            this.dataGridViewMoreDetails.AllowUserToDeleteRows = false;
             this.dataGridViewMoreDetails.BackgroundColor = System.Drawing.Color.SlateGray;
             this.dataGridViewMoreDetails.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewMoreDetails.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -137,6 +140,7 @@
             this.LikesCounting});
             this.dataGridViewMoreDetails.Location = new System.Drawing.Point(791, 169);
             this.dataGridViewMoreDetails.Name = "dataGridViewMoreDetails";
+            this.dataGridViewMoreDetails.ReadOnly = true;
             this.dataGridViewMoreDetails.Size = new System.Drawing.Size(366, 302);
             this.dataGridViewMoreDetails.TabIndex = 3;
             // 

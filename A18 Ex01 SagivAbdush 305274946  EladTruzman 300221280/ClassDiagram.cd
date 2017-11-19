@@ -1,2 +1,81 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ClassDiagram /> 
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280.FbClipSearchLogic.ClipSearchDAL">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAEAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAIAAA=</HashCode>
+      <FileName>FbClipSearchLogic\ClipSearchDAL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280.FbClipSearchLogic.ClipSearchWF">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>FbClipSearchLogic\ClipSearchWF.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280.FbClipSearchLogic.FriendPostsClipSearch" Collapsed="true">
+    <Position X="0.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>UAAAAAAAQBgQQAAhAASAQAwAAAABCBAgAAAKIAAAAAA=</HashCode>
+      <FileName>FbClipSearchLogic\FriendPostsClipSearch.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280.UserLoginInstance">
+    <Position X="5.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABQAAQAAAAAAEAAAIAAAAAAAAKQAAAAAAEAAA=</HashCode>
+      <FileName>FbConnect\UserLoginInstance.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280.FbTripAdvisorLogic.TripAdvisorDAL" Collapsed="true">
+    <Position X="7.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>iDAAAACAAAAACAAAAAAAAAAAAAAAEAgAgAAAAAAAAgg=</HashCode>
+      <FileName>FbTripAdvisorLogic\TripAdvisorDAL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280.FbTripAdvisorLogic.TripAdvisorWF" Collapsed="true">
+    <Position X="7.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAACAAAAACIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>FbTripAdvisorLogic\TripAdvisorWF.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280.GoogleMapLogic.GoogleMapHttpRequest" Collapsed="true">
+    <Position X="4" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAIAAAgAQEAAAAAAAAAQAAAA=</HashCode>
+      <FileName>GoogleMapLogic\GoogleMapHttpRequest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280.GoogleMapLogic.Prediction" Collapsed="true">
+    <Position X="7" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAIAgAAAIAAAAAAAAAAAAAAAAAAAAAAAAgA=</HashCode>
+      <FileName>GoogleMapLogic\Prediction.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280.GoogleMapLogic.RootObject" Collapsed="true">
+    <Position X="6.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAA=</HashCode>
+      <FileName>GoogleMapLogic\RootObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280.MainFormLogic.MainFormDAL" Collapsed="true">
+    <Position X="0.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABAAAIgAAAAAAAAAAAAAAAAAAACAAAAQQEA=</HashCode>
+      <FileName>MainFormLogic\MainFormDAL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280.MainFormLogic.MainFormWF" Collapsed="true">
+    <Position X="2.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAAAABAAAIgAEAAAAAAAAAAAAAAAAAKAAAAQQAA=</HashCode>
+      <FileName>MainFormLogic\MainFormWF.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Arial" Size="10" />
+</ClassDiagram>

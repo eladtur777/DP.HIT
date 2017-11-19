@@ -33,3 +33,4 @@ C:\Users\elad\Desktop\A18 Ex01 Sagiv 305274946 Elad 300221280COPY\A18 Ex01 Sagiv
 C:\Users\elad\Desktop\A18 Ex01 Sagiv 305274946 Elad 300221280COPY\A18 Ex01 SagivAbdush 305274946  EladTruzman 300221280\obj\Debug\A18 Ex01 SagivAbdush 305274946  EladTruzman 300221280.exe
 C:\Users\elad\Desktop\A18 Ex01 Sagiv 305274946 Elad 300221280COPY\A18 Ex01 SagivAbdush 305274946  EladTruzman 300221280\obj\Debug\A18 Ex01 SagivAbdush 305274946  EladTruzman 300221280.pdb
 C:\Users\elad\Desktop\A18 Ex01 Sagiv 305274946 Elad 300221280COPY\A18 Ex01 SagivAbdush 305274946  EladTruzman 300221280\obj\Debug\A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280.FbClipSearch.resources
+C:\Users\elad\Desktop\A18 Ex01 Sagiv 305274946 Elad 300221280COPY\A18 Ex01 SagivAbdush 305274946  EladTruzman 300221280\obj\Debug\A18 Ex01 SagivAbdush 305274946  EladTruzman 300221280.csprojResolveAssemblyReference.cache

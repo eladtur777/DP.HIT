@@ -7,7 +7,7 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280
 {
     public static class GeneralEnum
     {
-        public enum E_MainTabType {
+        public enum eMainTabType {
             music = 1,
             television,
             movies,
@@ -16,7 +16,7 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280
             PhotosTaggedIn
         };
 
-        public enum E_UserBasicDetails {
+        public enum eUserBasicDetails {
             UserImage = 1,
             FirstName,
             LastName,
@@ -27,13 +27,25 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280
             PostMessage
         };
 
-        public enum E_LocationSearch
+        public enum eLocationSearch
         {
             City = 1,
             Country,
             State,
             Street,
             Zip
+        };
+
+        public enum eFbTripAdvisorAttributesSetting
+        {
+            SearchFromList = 1,
+            SearchFromFreeTExt          
+        };
+
+        public enum eFormTypes
+        {
+            FbTripAdvisor = 1,
+            FbClipSearch
         };
     }
 }

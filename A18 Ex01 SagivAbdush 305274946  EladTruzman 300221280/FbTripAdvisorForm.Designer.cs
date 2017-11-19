@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.dataGridViewLocationsFriends = new System.Windows.Forms.DataGridView();
             this.Friend = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Location = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -48,8 +47,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.comboBoxSearchResults = new System.Windows.Forms.ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btnSearch = new System.Windows.Forms.Button();
+            this.pbSearchFromList = new System.Windows.Forms.PictureBox();
+            this.btnListSearch = new System.Windows.Forms.Button();
             this.checkBoxSearchFromList = new System.Windows.Forms.CheckBox();
             this.checkBoxFreeTextSearch = new System.Windows.Forms.CheckBox();
             this.txtBoxFreeText = new System.Windows.Forms.TextBox();
@@ -66,7 +65,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSearchFromList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
@@ -88,6 +87,7 @@
             // 
             // dataGridViewLocationsFriends
             // 
+            this.dataGridViewLocationsFriends.AllowUserToAddRows = false;
             this.dataGridViewLocationsFriends.AllowUserToDeleteRows = false;
             this.dataGridViewLocationsFriends.BackgroundColor = System.Drawing.Color.SlateGray;
             this.dataGridViewLocationsFriends.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -155,12 +155,15 @@
             // 
             // dataGridViewFriendsComments
             // 
+            this.dataGridViewFriendsComments.AllowUserToAddRows = false;
+            this.dataGridViewFriendsComments.AllowUserToDeleteRows = false;
             this.dataGridViewFriendsComments.BackgroundColor = System.Drawing.Color.SlateGray;
             this.dataGridViewFriendsComments.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewFriendsComments.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Comments});
             this.dataGridViewFriendsComments.Location = new System.Drawing.Point(3, 171);
             this.dataGridViewFriendsComments.Name = "dataGridViewFriendsComments";
+            this.dataGridViewFriendsComments.ReadOnly = true;
             this.dataGridViewFriendsComments.Size = new System.Drawing.Size(343, 148);
             this.dataGridViewFriendsComments.TabIndex = 11;
             // 
@@ -262,32 +265,35 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Controls.Add(this.pictureBox1);
+            this.panel1.Controls.Add(this.pbSearchFromList);
             this.panel1.Location = new System.Drawing.Point(2, 40);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(26, 20);
             this.panel1.TabIndex = 13;
             // 
-            // pictureBox1
+            // pbSearchFromList
             // 
-            this.pictureBox1.Image = global::A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280.Properties.Resources.SearchIcon;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(26, 20);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 9;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.pbSearchFromList.Image = global::A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280.Properties.Resources.SearchIcon;
+            this.pbSearchFromList.Location = new System.Drawing.Point(0, 0);
+            this.pbSearchFromList.Name = "pbSearchFromList";
+            this.pbSearchFromList.Size = new System.Drawing.Size(26, 20);
+            this.pbSearchFromList.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbSearchFromList.TabIndex = 9;
+            this.pbSearchFromList.TabStop = false;
+            this.pbSearchFromList.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
-            // btnSearch
+            // btnListSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(2, 97);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(75, 23);
-            this.btnSearch.TabIndex = 14;
-            this.btnSearch.Text = "GO!";
-            this.btnSearch.UseVisualStyleBackColor = true;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            this.btnListSearch.BackColor = System.Drawing.Color.DimGray;
+            this.btnListSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnListSearch.ForeColor = System.Drawing.Color.White;
+            this.btnListSearch.Location = new System.Drawing.Point(2, 97);
+            this.btnListSearch.Name = "btnListSearch";
+            this.btnListSearch.Size = new System.Drawing.Size(75, 23);
+            this.btnListSearch.TabIndex = 14;
+            this.btnListSearch.Text = "GO!";
+            this.btnListSearch.UseVisualStyleBackColor = false;
+            this.btnListSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // checkBoxSearchFromList
             // 
@@ -317,6 +323,7 @@
             // 
             // txtBoxFreeText
             // 
+            this.txtBoxFreeText.Enabled = false;
             this.txtBoxFreeText.Location = new System.Drawing.Point(3, 40);
             this.txtBoxFreeText.Name = "txtBoxFreeText";
             this.txtBoxFreeText.Size = new System.Drawing.Size(190, 20);
@@ -324,12 +331,16 @@
             // 
             // btnFreeText
             // 
+            this.btnFreeText.BackColor = System.Drawing.Color.DimGray;
+            this.btnFreeText.Enabled = false;
+            this.btnFreeText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFreeText.ForeColor = System.Drawing.Color.White;
             this.btnFreeText.Location = new System.Drawing.Point(3, 97);
             this.btnFreeText.Name = "btnFreeText";
             this.btnFreeText.Size = new System.Drawing.Size(75, 23);
             this.btnFreeText.TabIndex = 18;
             this.btnFreeText.Text = "GO!";
-            this.btnFreeText.UseVisualStyleBackColor = true;
+            this.btnFreeText.UseVisualStyleBackColor = false;
             this.btnFreeText.Click += new System.EventHandler(this.btnFreeText_Click);
             // 
             // label8
@@ -354,7 +365,7 @@
             this.splitContainer2.Panel1.Controls.Add(this.comboBoxSearchResults);
             this.splitContainer2.Panel1.Controls.Add(this.txtBoxSearch);
             this.splitContainer2.Panel1.Controls.Add(this.checkBoxSearchFromList);
-            this.splitContainer2.Panel1.Controls.Add(this.btnSearch);
+            this.splitContainer2.Panel1.Controls.Add(this.btnListSearch);
             this.splitContainer2.Panel1.Controls.Add(this.panel1);
             // 
             // splitContainer2.Panel2
@@ -402,7 +413,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSearchFromList)).EndInit();
             this.splitContainer2.Panel1.ResumeLayout(false);
             this.splitContainer2.Panel1.PerformLayout();
             this.splitContainer2.Panel2.ResumeLayout(false);
@@ -418,14 +429,13 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.DataGridView dataGridViewLocationsFriends;
         private System.Windows.Forms.TextBox txtBoxSearch;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pbSearchFromList;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.ComboBox comboBoxSearchResults;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.Button btnListSearch;
         private System.Windows.Forms.DataGridViewTextBoxColumn Friend;
         private System.Windows.Forms.DataGridViewTextBoxColumn Location;
         private System.Windows.Forms.DataGridViewImageColumn Post;

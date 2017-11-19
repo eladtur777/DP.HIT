@@ -15,16 +15,22 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280
         public FbTripAdvisorForm()
         {
             InitializeComponent();
+            FetchAppSetting();          
+            m_FriendsPlaces = new Dictionary<string, Image>();
+            tripAdvisorWF = new TripAdvisorWF();
+        }
+      
+        private void FetchAppSetting()
+        {
             FacebookWrapper.FacebookService.s_CollectionLimit = 50;
             this.txtBoxSearch.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             this.txtBoxSearch.AutoCompleteSource = AutoCompleteSource.CustomSource;
-            m_FriendsPlaces = new Dictionary<string, Image>();
-            tripAdvisorWF = new TripAdvisorWF();
+            checkBoxSearchFromList.Checked = true;
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            if (txtBoxSearch.Text != "")
+            if (txtBoxSearch.Text != string.Empty)
             {         
                 GoogleMapHttpRequest m_GoogleMapHttpRequest = new GoogleMapHttpRequest();
                 BindingSource bs = new BindingSource();
@@ -64,17 +70,15 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280
                 else
                 {
                     this.dataGridViewLocationsFriends.Rows.Insert(0, "No results", "No results", null);
-
                 }
             }
-
             else
             {
                 MessageBox.Show("Please select your location from the list options");
             }
         }
 
-        //On cell click
+        ////On cell click
         private void dataGridViewLocationsFriends_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             int row = e.RowIndex;
@@ -87,18 +91,22 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280
                 {
                     label2.Text = m_FriendPostsList[row].Message;
                 }
+
                 if (m_FriendPostsList[row].Place != null)
                 {
                     label3.Text = m_FriendPostsList[row].Place;
                 }
+
                 if (m_FriendPostsList[row].PostDescription != null)
                 {
                     label4.Text = m_FriendPostsList[row].PostDescription;
                 }
+
                 if (m_FriendPostsList[row].PostedDateTime != null)
                 {
                     label5.Text = m_FriendPostsList[row].PostedDateTime.ToShortDateString();
                 }
+
                 if (m_FriendPostsList[row].PictureUrl != null)
                 {
                     pictureBox3.Load(m_FriendPostsList[row].PictureUrl);
@@ -153,10 +161,8 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280
                 else
                 {
                     this.dataGridViewLocationsFriends.Rows.Insert(0, "No results", "No results", null);
-
                 }
             }
-
             else
             {
                 MessageBox.Show("Please insert location or place name");
@@ -166,11 +172,37 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280
         private void checkBoxSearchFromList_CheckedChanged(object sender, EventArgs e)
         {
             checkBoxFreeTextSearch.Checked = !checkBoxSearchFromList.Checked;
+            SetChkBoxFormAttributes(GeneralEnum.eFbTripAdvisorAttributesSetting.SearchFromList);
+        }
+
+        private void SetChkBoxFormAttributes(GeneralEnum.eFbTripAdvisorAttributesSetting i_ChkBoxNameToEnable)
+        {
+            switch (i_ChkBoxNameToEnable)
+            {
+                case GeneralEnum.eFbTripAdvisorAttributesSetting.SearchFromFreeTExt:
+                    txtBoxFreeText.Enabled = true;
+                    btnFreeText.Enabled = true;
+                    txtBoxSearch.Enabled = false;
+                    pbSearchFromList.Enabled = false;
+                    comboBoxSearchResults.Enabled = false;
+                    btnListSearch.Enabled = false;
+                    break;
+
+                case GeneralEnum.eFbTripAdvisorAttributesSetting.SearchFromList:
+                    txtBoxFreeText.Enabled = false;
+                    btnFreeText.Enabled = false;
+                    txtBoxSearch.Enabled = true;
+                    pbSearchFromList.Enabled = true;
+                    comboBoxSearchResults.Enabled = true;
+                    btnListSearch.Enabled = true;
+                    break;
+            }
         }
 
         private void checkBoxFreeTextSearch_CheckedChanged(object sender, EventArgs e)
         {
             checkBoxSearchFromList.Checked = !checkBoxFreeTextSearch.Checked;
+            SetChkBoxFormAttributes(GeneralEnum.eFbTripAdvisorAttributesSetting.SearchFromFreeTExt);
         }
     }
 }

@@ -55,8 +55,6 @@
             this.lblLatestPost = new System.Windows.Forms.Label();
             this.btnTripAdvisor = new System.Windows.Forms.Button();
             this.btnClipSearch = new System.Windows.Forms.Button();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
             this.LogOutBtn = new System.Windows.Forms.PictureBox();
             this.userImageProfile = new System.Windows.Forms.PictureBox();
             this.loginBtn = new System.Windows.Forms.PictureBox();
@@ -76,9 +74,12 @@
             // 
             // dataGridViewMusic
             // 
+            this.dataGridViewMusic.AllowUserToAddRows = false;
+            this.dataGridViewMusic.AllowUserToDeleteRows = false;
             this.dataGridViewMusic.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewMusic.Location = new System.Drawing.Point(0, 0);
             this.dataGridViewMusic.Name = "dataGridViewMusic";
+            this.dataGridViewMusic.ReadOnly = true;
             this.dataGridViewMusic.Size = new System.Drawing.Size(745, 256);
             this.dataGridViewMusic.TabIndex = 0;
             // 
@@ -118,10 +119,13 @@
             // 
             // dataGridViewBooks
             // 
+            this.dataGridViewBooks.AllowUserToAddRows = false;
+            this.dataGridViewBooks.AllowUserToDeleteRows = false;
             this.dataGridViewBooks.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewBooks.Location = new System.Drawing.Point(-4, 0);
             this.dataGridViewBooks.Name = "dataGridViewBooks";
-            this.dataGridViewBooks.Size = new System.Drawing.Size(749, 258);
+            this.dataGridViewBooks.ReadOnly = true;
+            this.dataGridViewBooks.Size = new System.Drawing.Size(749, 250);
             this.dataGridViewBooks.TabIndex = 0;
             // 
             // MyMovies
@@ -137,9 +141,12 @@
             // 
             // dataGridViewMovies
             // 
+            this.dataGridViewMovies.AllowUserToAddRows = false;
+            this.dataGridViewMovies.AllowUserToDeleteRows = false;
             this.dataGridViewMovies.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewMovies.Location = new System.Drawing.Point(0, 0);
             this.dataGridViewMovies.Name = "dataGridViewMovies";
+            this.dataGridViewMovies.ReadOnly = true;
             this.dataGridViewMovies.Size = new System.Drawing.Size(746, 253);
             this.dataGridViewMovies.TabIndex = 0;
             // 
@@ -156,16 +163,19 @@
             // 
             // dataGridViewFriends
             // 
+            this.dataGridViewFriends.AllowUserToAddRows = false;
+            this.dataGridViewFriends.AllowUserToDeleteRows = false;
             this.dataGridViewFriends.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewFriends.Location = new System.Drawing.Point(0, 0);
             this.dataGridViewFriends.Name = "dataGridViewFriends";
+            this.dataGridViewFriends.ReadOnly = true;
             this.dataGridViewFriends.Size = new System.Drawing.Size(746, 250);
             this.dataGridViewFriends.TabIndex = 0;
             // 
             // textBoxPostPublish
             // 
             this.textBoxPostPublish.Enabled = false;
-            this.textBoxPostPublish.Location = new System.Drawing.Point(351, 22);
+            this.textBoxPostPublish.Location = new System.Drawing.Point(307, 21);
             this.textBoxPostPublish.Name = "textBoxPostPublish";
             this.textBoxPostPublish.Size = new System.Drawing.Size(258, 20);
             this.textBoxPostPublish.TabIndex = 8;
@@ -176,7 +186,7 @@
             this.btnPostPublish.Enabled = false;
             this.btnPostPublish.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPostPublish.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnPostPublish.Location = new System.Drawing.Point(258, 20);
+            this.btnPostPublish.Location = new System.Drawing.Point(216, 19);
             this.btnPostPublish.Name = "btnPostPublish";
             this.btnPostPublish.Size = new System.Drawing.Size(90, 25);
             this.btnPostPublish.TabIndex = 7;
@@ -322,7 +332,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label7.Location = new System.Drawing.Point(158, 210);
+            this.label7.Location = new System.Drawing.Point(158, 200);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(75, 13);
             this.label7.TabIndex = 25;
@@ -334,7 +344,7 @@
             this.lblLatestPost.AutoSize = true;
             this.lblLatestPost.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLatestPost.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lblLatestPost.Location = new System.Drawing.Point(239, 210);
+            this.lblLatestPost.Location = new System.Drawing.Point(235, 200);
             this.lblLatestPost.Name = "lblLatestPost";
             this.lblLatestPost.Size = new System.Drawing.Size(67, 13);
             this.lblLatestPost.TabIndex = 26;
@@ -343,43 +353,31 @@
             // 
             // btnTripAdvisor
             // 
+            this.btnTripAdvisor.BackColor = System.Drawing.Color.DimGray;
             this.btnTripAdvisor.Enabled = false;
-            this.btnTripAdvisor.Location = new System.Drawing.Point(534, 103);
+            this.btnTripAdvisor.Font = new System.Drawing.Font("Microsoft YaHei", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTripAdvisor.ForeColor = System.Drawing.SystemColors.MenuHighlight;
+            this.btnTripAdvisor.Location = new System.Drawing.Point(670, 169);
             this.btnTripAdvisor.Name = "btnTripAdvisor";
-            this.btnTripAdvisor.Size = new System.Drawing.Size(75, 23);
+            this.btnTripAdvisor.Size = new System.Drawing.Size(76, 67);
             this.btnTripAdvisor.TabIndex = 27;
-            this.btnTripAdvisor.Text = "GO!";
-            this.btnTripAdvisor.UseVisualStyleBackColor = true;
+            this.btnTripAdvisor.Text = "FaceBook Trip Advisor";
+            this.btnTripAdvisor.UseVisualStyleBackColor = false;
             this.btnTripAdvisor.Click += new System.EventHandler(this.btnTripAdvisor_Click);
             // 
             // btnClipSearch
             // 
+            this.btnClipSearch.BackColor = System.Drawing.Color.DimGray;
             this.btnClipSearch.Enabled = false;
-            this.btnClipSearch.Location = new System.Drawing.Point(534, 153);
+            this.btnClipSearch.Font = new System.Drawing.Font("Microsoft YaHei", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClipSearch.ForeColor = System.Drawing.SystemColors.MenuHighlight;
+            this.btnClipSearch.Location = new System.Drawing.Point(670, 118);
             this.btnClipSearch.Name = "btnClipSearch";
-            this.btnClipSearch.Size = new System.Drawing.Size(75, 23);
+            this.btnClipSearch.Size = new System.Drawing.Size(76, 52);
             this.btnClipSearch.TabIndex = 28;
-            this.btnClipSearch.Text = "GO!";
-            this.btnClipSearch.UseVisualStyleBackColor = true;
+            this.btnClipSearch.Text = "FaceBook ClipSearch";
+            this.btnClipSearch.UseVisualStyleBackColor = false;
             this.btnClipSearch.Click += new System.EventHandler(this.btnClipSearch_Click);
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(512, 87);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(115, 13);
-            this.label8.TabIndex = 29;
-            this.label8.Text = "FaceBook Trip Advisor";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(549, 137);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(49, 13);
-            this.label9.TabIndex = 30;
-            this.label9.Text = "Feature2";
             // 
             // LogOutBtn
             // 
@@ -389,8 +387,8 @@
             this.LogOutBtn.Size = new System.Drawing.Size(41, 39);
             this.LogOutBtn.TabIndex = 24;
             this.LogOutBtn.TabStop = false;
-            this.LogOutBtn.Click += new System.EventHandler(this.LogOutBtn_Click);
-            this.LogOutBtn.MouseHover += new System.EventHandler(this.LogOutBtn_MouseHover);
+            this.LogOutBtn.Click += new System.EventHandler(this.logOutBtn_Click);
+            this.LogOutBtn.MouseHover += new System.EventHandler(this.logOutBtn_MouseHover);
             // 
             // userImageProfile
             // 
@@ -420,8 +418,6 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.LightSteelBlue;
             this.ClientSize = new System.Drawing.Size(747, 502);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.label8);
             this.Controls.Add(this.btnClipSearch);
             this.Controls.Add(this.btnTripAdvisor);
             this.Controls.Add(this.lblLatestPost);
@@ -444,6 +440,7 @@
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.textBoxPostPublish);
             this.Controls.Add(this.btnPostPublish);
+            this.ForeColor = System.Drawing.Color.Transparent;
             this.MaximizeBox = false;
             this.Name = "MainForm";
             this.Text = "Form1";
@@ -496,8 +493,5 @@
         private System.Windows.Forms.DataGridView dataGridViewFriends;
         private System.Windows.Forms.Button btnTripAdvisor;
         private System.Windows.Forms.Button btnClipSearch;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label9;
     }
 }
-

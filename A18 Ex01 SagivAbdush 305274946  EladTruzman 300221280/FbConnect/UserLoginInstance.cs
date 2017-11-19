@@ -58,7 +58,7 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280
                             {
                                 m_Instance = new UserLoginInstance();
                             }
-                            catch (Exception  E_message)
+                            catch (Exception)
                             {
 
                                 MessageBox.Show("Login Instance creation problem, Please try to Relogin again");

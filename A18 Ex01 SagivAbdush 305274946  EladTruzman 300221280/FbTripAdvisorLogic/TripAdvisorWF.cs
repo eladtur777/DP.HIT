@@ -10,11 +10,11 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280.FbTripAdvisorLog
     public class TripAdvisorWF
     {
         TripAdvisorDAL TripAdvisorDAL = new TripAdvisorDAL();
-        private Dictionary<string, List<PictureBox>> m_FriendsPlaces;
-        public Dictionary<string, List<PictureBox>> FriendsPlaces
-        {
-            get { return m_FriendsPlaces; }
-        }
+        //private Dictionary<string, List<PictureBox>> m_FriendsPlaces;
+        //public Dictionary<string, List<PictureBox>> FriendsPlaces
+        //{
+        //    get { return m_FriendsPlaces; }
+        //}
 
         public Dictionary<string, Image> FindFriendsPlacesBySpecificLocation(LocationSearch i_LocationList)
         {

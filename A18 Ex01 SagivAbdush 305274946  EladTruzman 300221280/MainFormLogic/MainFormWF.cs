@@ -31,7 +31,7 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280.MainFormLogic
             return MainFormDAL.GetUserFriends();
         }
 
-        public Dictionary<GeneralEnum.E_UserBasicDetails, string> GetUserBasicDetails()
+        public Dictionary<GeneralEnum.eUserBasicDetails, string> GetUserBasicDetails()
         {
             return MainFormDAL.GetUserBasicDetails();
         }
