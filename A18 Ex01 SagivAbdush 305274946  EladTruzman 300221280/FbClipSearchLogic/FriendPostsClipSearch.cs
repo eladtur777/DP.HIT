@@ -60,7 +60,7 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280.FbClipSearchLogi
         public DateTime PostedDateTime { get { return m_PostedDateTime; } set { m_PostedDateTime = value; } }
         public FacebookObjectCollection<User> LikedBy { get { return m_LikedBy; } set { m_LikedBy = value; } }
 
-
+        public FacebookObjectCollection<Comment> Comments { get { return m_FriendComments; } set { m_FriendComments = value; } }
         public Image FriendImage { get { return m_FriendImage; } set { m_FriendImage = value; } }
         public string PostDescription { get { return m_PostDescription; } set { m_PostDescription = value; } }
         public string Name { get { return m_Name; } set { m_Name = value; } }
