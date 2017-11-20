@@ -1,10 +1,7 @@
 ﻿using Newtonsoft.Json;
-using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Net;
-using System.Text;
 
 namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280.GoogleMapLogic
 {
@@ -27,7 +24,7 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280.GoogleMapLogic
 
         private void RequestCompleted(HttpWebRequest i_webRequest)
         {
-            var resp = "";
+            var resp = string.Empty;
             var request = i_webRequest;
             var response = (HttpWebResponse)request.GetResponse();
         

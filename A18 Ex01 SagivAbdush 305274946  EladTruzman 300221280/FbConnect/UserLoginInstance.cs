@@ -10,10 +10,11 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280
 {
     public sealed class UserLoginInstance
     {
+        private static volatile object sr_ObjectForCriticalSection = new object();
         private static UserLoginInstance m_Instance;
-        private static readonly Object sr_ObjectForCriticalSection = new Object();
-        private string m_ErrorMessageResult = string.Empty;
         private static User m_LoggedInUser;
+        private string m_ErrorMessageResult = string.Empty;
+ 
 
         public static User LoggedInUser
         {
@@ -33,6 +34,7 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280
             {
                 return this.m_ErrorMessageResult;
             }
+
             set
             {
                 this.m_ErrorMessageResult = value;
@@ -40,14 +42,13 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280
         }
 
         private UserLoginInstance()
-        { }
-
+        {
+        }
 
         public static UserLoginInstance Instance
         {
             get
             {
-
                 if (m_Instance == null)
                 {
                     lock (sr_ObjectForCriticalSection)

@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 using FacebookWrapper.ObjectModel;
-using FacebookWrapper;
 
 namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280.MainFormLogic
 {
@@ -36,14 +32,6 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280.MainFormLogic
             return MainFormDAL.GetUserBasicDetails();
         }
 
-        public void FaceBookLogOut(string i_FunctionName, Type i_ClassName)
-        {
-            //MethodInfo m = i_ClassName.GetCla(i_FunctionName);
-
-            //i_ClassName className = new i_ClassName();
-            //FacebookService.Logout(className.i_FunctionName);
-        }
-
         public string InitializeFaceBookLogin(string i_AppId)
         {
             return MainFormDAL.InitializeFaceBookLogin(i_AppId);
@@ -53,6 +41,5 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280.MainFormLogic
         {
             return MainFormDAL.PublishPostOnWall(i_PostToPublish);
         }
-
     }
 }

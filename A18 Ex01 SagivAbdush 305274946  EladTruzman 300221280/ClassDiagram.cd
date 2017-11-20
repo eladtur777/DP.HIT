@@ -14,15 +14,15 @@
       <FileName>FbClipSearchLogic\ClipSearchWF.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280.FbClipSearchLogic.FriendPostsClipSearch" Collapsed="true">
-    <Position X="0.5" Y="1.5" Width="1.5" />
+  <Class Name="A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280.FbClipSearchLogic.FriendPostsClipSearch">
+    <Position X="2.25" Y="2" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>UAAAAAAAQBgQQAAhAASAQAwAAAABCBAgAAAKIAAAAAA=</HashCode>
+      <HashCode>UAAAAAAAQBgQQAAhAASAQAwAAAABCBAgAAAKIAAAIAA=</HashCode>
       <FileName>FbClipSearchLogic\FriendPostsClipSearch.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280.UserLoginInstance">
-    <Position X="5.25" Y="0.5" Width="1.5" />
+    <Position X="5.75" Y="0.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAABQAAQAAAAAAEAAAIAAAAAAAAKQAAAAAAEAAA=</HashCode>
       <FileName>FbConnect\UserLoginInstance.cs</FileName>
@@ -38,7 +38,7 @@
   <Class Name="A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280.FbTripAdvisorLogic.TripAdvisorWF" Collapsed="true">
     <Position X="7.75" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>gAAACAAAAACIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEA=</HashCode>
+      <HashCode>gAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEA=</HashCode>
       <FileName>FbTripAdvisorLogic\TripAdvisorWF.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -70,11 +70,22 @@
       <FileName>MainFormLogic\MainFormDAL.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280.MainFormLogic.MainFormWF" Collapsed="true">
+  <Class Name="A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280.MainFormLogic.MainFormWF">
     <Position X="2.25" Y="3.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAIAAAAABAAAIgAEAAAAAAAAAAAAAAAAAKAAAAQQAA=</HashCode>
       <FileName>MainFormLogic\MainFormWF.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280.MainForm">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>ACQQkaqYCSgBAhIAEgiAoJASMAxAAgAAAAIgRCAhBAI=</HashCode>
+      <FileName>MainForm.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Arial" Size="10" />

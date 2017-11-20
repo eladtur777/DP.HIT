@@ -87,10 +87,10 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280
             dataGridViewFriendsComments.Rows.Clear();
             if (m_FriendPostsList.Count > 0)
             {
-               int likedCount =  m_FriendPostsList[row].LikedBy.Count;
+               int likedCount = m_FriendPostsList[row].LikedBy.Count;
                 if (likedCount > 0)
                 {
-                    label6.Text = string.Format("Liked By {0} FaceBook Users" , likedCount);
+                    label6.Text = string.Format("Liked By {0} FaceBook Users", likedCount);
                 }
 
                 if (!string.IsNullOrEmpty(m_FriendPostsList[row].Message))

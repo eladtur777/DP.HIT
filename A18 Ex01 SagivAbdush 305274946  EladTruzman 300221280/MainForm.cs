@@ -1,11 +1,10 @@
-﻿using System;
+﻿using System.Threading;
+using System.ComponentModel;
+using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using FacebookWrapper;
 using A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280.MainFormLogic;
-using System.ComponentModel;
-using System.Threading;
-using System.Threading.Tasks;
 
 namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280
 {
@@ -20,10 +19,9 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280
             MainFormWF = new MainFormWF();
             m_UserBasicDetails = new Dictionary<GeneralEnum.eUserBasicDetails, string>();
             FacebookService.s_CollectionLimit = 50;
-            FacebookService.s_FbApiVersion = 2.8f;
-            chooseAppId();
-             
+            chooseAppId();            
         }
+
         private void chooseAppId()
         {
             ////personal App ID
@@ -101,21 +99,20 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280
             lblLatestPost.Visible = true;
             btnClipSearch.Enabled = true;
             btnTripAdvisor.Enabled = true;
-           // loginBtn.Enabled = false;
         }
 
         public void RunProgressBar()
         {                
             if (!backgroundWorker.IsBusy)
             {
-                  loginBtn.Enabled = false;
+                loginBtn.Enabled = false;
+                progressBar.Visible = true;
                 backgroundWorker.RunWorkerAsync();
                 backgroundWorker.WorkerReportsProgress = true;
                 backgroundWorker.DoWork += new DoWorkEventHandler(backgroundWorker_DoWork);
                 backgroundWorker.ProgressChanged += new ProgressChangedEventHandler(backgroundWorker_ProgressChanged);
             }
         }
-
 
         private void loginBtn_Click(object sender, EventArgs e)
         {       
@@ -134,8 +131,7 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280
                 }
             }
             else
-            {
-                
+            {             
                 MessageBox.Show("Please select App Id");
                 loginBtn.Enabled = true;
             }
@@ -170,6 +166,7 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280
             dataGridViewMusic.DataSource = null;
             btnClipSearch.Enabled = false;
             btnTripAdvisor.Enabled = false;
+            progressBar.Visible = false;
         }
 
         private void btnPostPublish_Click(object sender, EventArgs e)
@@ -200,11 +197,8 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280
             if (UserLoginInstance.LoggedInUser != null)
             {
                 try
-                {
-                    progressBar.Visible = true;
-                    loginBtn.Enabled = true;
-                    FacebookService.Logout(null);
-                 
+                {            
+                    FacebookService.Logout(successLogOut);               
                 }
                 catch (Exception)
                 {
@@ -215,7 +209,7 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280
 
         private void successLogOut()
         {
-            // MessageBox.Show("Successfuly Logout from App");
+            loginBtn.Enabled = true;
             resetForm();
         }
   
@@ -227,9 +221,7 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280
 
         private void logOutBtn_Click(object sender, EventArgs e)
         {
-            DialogResult resultFromLogoutDialog = MessageBox.Show("Are you sure you want to LogOut and Exit?",
-           "Important Question",
-            MessageBoxButtons.YesNo);
+            DialogResult resultFromLogoutDialog = MessageBox.Show("Are you sure you want to LogOut and Exit?", "Important Question", MessageBoxButtons.YesNo);
 
             if (resultFromLogoutDialog == DialogResult.Yes)
             {

@@ -47,10 +47,12 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280.MainFormLogic
             m_UserDetails.Add(GeneralEnum.eUserBasicDetails.Gender, UserLoginInstance.LoggedInUser.Gender.ToString());
             m_UserDetails.Add(GeneralEnum.eUserBasicDetails.Religion, UserLoginInstance.LoggedInUser.Religion);
             m_UserDetails.Add(GeneralEnum.eUserBasicDetails.Email, UserLoginInstance.LoggedInUser.Email);
+
             if (UserLoginInstance.LoggedInUser.Posts.Count > 0)
             {
                 m_UserDetails.Add(GeneralEnum.eUserBasicDetails.PostMessage, UserLoginInstance.LoggedInUser.Posts[0].Message);
             }
+
                 return m_UserDetails;
         }
 
@@ -60,7 +62,7 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280.MainFormLogic
             UserLoginInstance.Instance.initializeFaceBookLoginPermissions(i_AppId);
             if (UserLoginInstance.LoggedInUser != null && UserLoginInstance.LoggedInUser.Id != null)
             {
-                result = "";
+                result = string.Empty;
             }
 
             if (!string.IsNullOrEmpty(UserLoginInstance.Instance.ErrorMessageResult))
@@ -79,7 +81,6 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280.MainFormLogic
                 try
                 {
                     UserLoginInstance.LoggedInUser.PostStatus(i_PostToPublish);
-
                 }
                 catch (Exception ePost)
                 {
@@ -89,6 +90,5 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280.MainFormLogic
 
             return result;
         }
-
     }
 }

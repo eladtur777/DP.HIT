@@ -9,7 +9,6 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280.FbTripAdvisorLog
 {
     public class TripAdvisorDAL
     {
-      
         private FriendPosts FriendPostsToFill;
         private List<PictureBox> m_FriendsImageList = new List<PictureBox>();
         private List<Point> points = new List<Point>();
@@ -63,7 +62,7 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280.FbTripAdvisorLog
                                     if (friendsPost[j].Place.Name.ToUpper().Contains(words[k].ToUpper()))
                                     {
                                         isAllreadyIn = false;
-                                        //Fill friends profile image list 
+                                        ////Fill friends profile image list 
                                         m_FriendsPlacesPictures.Add(friends[i].Name, friends[i].ImageSquare);
                                         FriendPostsToFill = new FriendPosts();
                                         FriendPostsToFill.FriendId = friends[i].Id;
@@ -77,7 +76,6 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280.FbTripAdvisorLog
                                         FriendPostsToFill.PostedDateTime = friendsPost[j].CreatedTime.Value;
                                         m_FriendPostsList.Add(innerIndex, FriendPostsToFill);
                                         innerIndex++;
-
                                     }
                                 }
                             }
@@ -85,7 +83,7 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280.FbTripAdvisorLog
                     }
                 }
             }
-            catch (Exception exFriendsPost)
+            catch (Exception)
             {
                 m_FriendsPlacesPictures = null;             
                 return m_FriendsPlacesPictures;
