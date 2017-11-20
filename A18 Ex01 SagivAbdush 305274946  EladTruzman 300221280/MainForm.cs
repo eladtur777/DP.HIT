@@ -3,23 +3,36 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using FacebookWrapper;
 using A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280.MainFormLogic;
+using System.ComponentModel;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280
 {
     public partial class MainForm : Form
-    { 
+    {
         private MainFormWF MainFormWF;
         private Dictionary<GeneralEnum.eUserBasicDetails, string> m_UserBasicDetails;
-
+        
         public MainForm()
         {
             InitializeComponent();
             MainFormWF = new MainFormWF();
             m_UserBasicDetails = new Dictionary<GeneralEnum.eUserBasicDetails, string>();
             FacebookService.s_CollectionLimit = 50;
+            FacebookService.s_FbApiVersion = 2.8f;
+            chooseAppId();
+             
+        }
+        private void chooseAppId()
+        {
+            ////personal App ID
+            comboBoxAppID.Items.Add("175713159647920");
+            ////Desig Pattern App ID
+            comboBoxAppID.Items.Add("1450160541956417");
+            comboBoxAppID.SelectedIndex = 0;
         }
 
-       
         private void fillTabs()
         {
             dataGridViewMusic.DataSource = MainFormWF.GetUserMusic();
@@ -88,20 +101,43 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280
             lblLatestPost.Visible = true;
             btnClipSearch.Enabled = true;
             btnTripAdvisor.Enabled = true;
-            loginBtn.Enabled = false;
+           // loginBtn.Enabled = false;
         }
 
-        private void loginBtn_Click(object sender, EventArgs e)
-        {
-            string result = MainFormWF.InitializeFaceBookLogin();
-            if (string.IsNullOrEmpty(result))
+        public void RunProgressBar()
+        {                
+            if (!backgroundWorker.IsBusy)
             {
-                loadUserDetailsLabelsToScreen();
-                fillTabs();
+                  loginBtn.Enabled = false;
+                backgroundWorker.RunWorkerAsync();
+                backgroundWorker.WorkerReportsProgress = true;
+                backgroundWorker.DoWork += new DoWorkEventHandler(backgroundWorker_DoWork);
+                backgroundWorker.ProgressChanged += new ProgressChangedEventHandler(backgroundWorker_ProgressChanged);
+            }
+        }
+
+
+        private void loginBtn_Click(object sender, EventArgs e)
+        {       
+            if (!string.IsNullOrEmpty(comboBoxAppID.SelectedText))
+            {
+                RunProgressBar();
+                string result = MainFormWF.InitializeFaceBookLogin(comboBoxAppID.SelectedText);
+                if (string.IsNullOrEmpty(result))
+                {
+                    loadUserDetailsLabelsToScreen();
+                    fillTabs();
+                }
+                else
+                {
+                    MessageBox.Show(result);
+                }
             }
             else
             {
-                MessageBox.Show(result);
+                
+                MessageBox.Show("Please select App Id");
+                loginBtn.Enabled = true;
             }
         }
 
@@ -165,7 +201,10 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280
             {
                 try
                 {
+                    progressBar.Visible = true;
+                    loginBtn.Enabled = true;
                     FacebookService.Logout(null);
+                 
                 }
                 catch (Exception)
                 {
@@ -176,7 +215,8 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280
 
         private void successLogOut()
         {
-            MessageBox.Show("Successfuly Logout from App");
+            // MessageBox.Show("Successfuly Logout from App");
+            resetForm();
         }
   
         private void btnClipSearch_Click(object sender, EventArgs e)
@@ -211,6 +251,39 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280
         {
             ToolTip toolTipForLogOutImgBtn = new ToolTip();
             toolTipForLogOutImgBtn.SetToolTip(this.LogOutBtn, "Log-Out");
+        }
+
+        private void backgroundWorker_DoWork(object sender, DoWorkEventArgs e)
+        {
+            backgroundWorker.DoWork -= new DoWorkEventHandler(backgroundWorker_DoWork);
+            backgroundWorker.ProgressChanged -= new ProgressChangedEventHandler(backgroundWorker_ProgressChanged);
+
+            for (int i = 0; i < 100 ; i++)
+            {
+                backgroundWorker.ReportProgress(i);
+                Thread.Sleep(10);
+            }
+
+        }
+
+        private void backgroundWorker_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            if (e.ProgressPercentage < 100)
+            {
+                progressBar.Value = e.ProgressPercentage;
+            }
+            else
+            {
+                progressBar.Value = 0;
+            }
+
+        }
+
+        private void backgroundWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            progressBar.Value = 100;
+            Thread.Sleep(100);
+            progressBar.Visible = false;
         }
     }
 }

@@ -1,6 +1,5 @@
-﻿using A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280.FbClipSearchLogic;
-using FacebookWrapper.ObjectModel;
-using System;
+﻿using System;
+using A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280.FbClipSearchLogic;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
@@ -10,6 +9,7 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280
     public partial class FbClipSearch : Form
     {
         private Dictionary<int, FriendPostsClipSearch> Clipresults;
+
         public FbClipSearch()
         {
             InitializeComponent();

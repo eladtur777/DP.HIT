@@ -58,6 +58,10 @@
             this.LogOutBtn = new System.Windows.Forms.PictureBox();
             this.userImageProfile = new System.Windows.Forms.PictureBox();
             this.loginBtn = new System.Windows.Forms.PictureBox();
+            this.progressBar = new System.Windows.Forms.ProgressBar();
+            this.backgroundWorker = new System.ComponentModel.BackgroundWorker();
+            this.comboBoxAppID = new System.Windows.Forms.ComboBox();
+            this.lblAppApiId = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMusic)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -175,7 +179,7 @@
             // textBoxPostPublish
             // 
             this.textBoxPostPublish.Enabled = false;
-            this.textBoxPostPublish.Location = new System.Drawing.Point(307, 21);
+            this.textBoxPostPublish.Location = new System.Drawing.Point(426, 19);
             this.textBoxPostPublish.Name = "textBoxPostPublish";
             this.textBoxPostPublish.Size = new System.Drawing.Size(258, 20);
             this.textBoxPostPublish.TabIndex = 8;
@@ -186,7 +190,7 @@
             this.btnPostPublish.Enabled = false;
             this.btnPostPublish.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPostPublish.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnPostPublish.Location = new System.Drawing.Point(216, 19);
+            this.btnPostPublish.Location = new System.Drawing.Point(334, 17);
             this.btnPostPublish.Name = "btnPostPublish";
             this.btnPostPublish.Size = new System.Drawing.Size(90, 25);
             this.btnPostPublish.TabIndex = 7;
@@ -357,7 +361,7 @@
             this.btnTripAdvisor.Enabled = false;
             this.btnTripAdvisor.Font = new System.Drawing.Font("Microsoft YaHei", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTripAdvisor.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.btnTripAdvisor.Location = new System.Drawing.Point(670, 169);
+            this.btnTripAdvisor.Location = new System.Drawing.Point(670, 138);
             this.btnTripAdvisor.Name = "btnTripAdvisor";
             this.btnTripAdvisor.Size = new System.Drawing.Size(76, 67);
             this.btnTripAdvisor.TabIndex = 27;
@@ -371,7 +375,7 @@
             this.btnClipSearch.Enabled = false;
             this.btnClipSearch.Font = new System.Drawing.Font("Microsoft YaHei", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClipSearch.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.btnClipSearch.Location = new System.Drawing.Point(670, 118);
+            this.btnClipSearch.Location = new System.Drawing.Point(670, 87);
             this.btnClipSearch.Name = "btnClipSearch";
             this.btnClipSearch.Size = new System.Drawing.Size(76, 52);
             this.btnClipSearch.TabIndex = 28;
@@ -411,6 +415,37 @@
             this.loginBtn.TabStop = false;
             this.loginBtn.Click += new System.EventHandler(this.loginBtn_Click);
             // 
+            // progressBar
+            // 
+            this.progressBar.Location = new System.Drawing.Point(199, 20);
+            this.progressBar.Name = "progressBar";
+            this.progressBar.Size = new System.Drawing.Size(113, 23);
+            this.progressBar.TabIndex = 29;
+            // 
+            // backgroundWorker
+            // 
+            this.backgroundWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker_DoWork);
+            this.backgroundWorker.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.backgroundWorker_ProgressChanged);
+            this.backgroundWorker.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker_RunWorkerCompleted);
+            // 
+            // comboBoxAppID
+            // 
+            this.comboBoxAppID.FormattingEnabled = true;
+            this.comboBoxAppID.Location = new System.Drawing.Point(426, 47);
+            this.comboBoxAppID.Name = "comboBoxAppID";
+            this.comboBoxAppID.Size = new System.Drawing.Size(258, 21);
+            this.comboBoxAppID.TabIndex = 30;
+            // 
+            // lblAppApiId
+            // 
+            this.lblAppApiId.AutoSize = true;
+            this.lblAppApiId.Font = new System.Drawing.Font("Guttman-Toledo", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAppApiId.Location = new System.Drawing.Point(356, 52);
+            this.lblAppApiId.Name = "lblAppApiId";
+            this.lblAppApiId.Size = new System.Drawing.Size(57, 16);
+            this.lblAppApiId.TabIndex = 31;
+            this.lblAppApiId.Text = "App ID:";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -418,6 +453,9 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.LightSteelBlue;
             this.ClientSize = new System.Drawing.Size(747, 502);
+            this.Controls.Add(this.lblAppApiId);
+            this.Controls.Add(this.comboBoxAppID);
+            this.Controls.Add(this.progressBar);
             this.Controls.Add(this.btnClipSearch);
             this.Controls.Add(this.btnTripAdvisor);
             this.Controls.Add(this.lblLatestPost);
@@ -443,7 +481,7 @@
             this.ForeColor = System.Drawing.Color.Transparent;
             this.MaximizeBox = false;
             this.Name = "MainForm";
-            this.Text = "Form1";
+            this.Text = "MainForm";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainForm_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMusic)).EndInit();
             this.tabControl1.ResumeLayout(false);
@@ -493,5 +531,9 @@
         private System.Windows.Forms.DataGridView dataGridViewFriends;
         private System.Windows.Forms.Button btnTripAdvisor;
         private System.Windows.Forms.Button btnClipSearch;
+        private System.Windows.Forms.ProgressBar progressBar;
+        private System.ComponentModel.BackgroundWorker backgroundWorker;
+        private System.Windows.Forms.ComboBox comboBoxAppID;
+        private System.Windows.Forms.Label lblAppApiId;
     }
 }

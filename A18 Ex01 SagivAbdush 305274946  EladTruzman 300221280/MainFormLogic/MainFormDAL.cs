@@ -47,14 +47,17 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280.MainFormLogic
             m_UserDetails.Add(GeneralEnum.eUserBasicDetails.Gender, UserLoginInstance.LoggedInUser.Gender.ToString());
             m_UserDetails.Add(GeneralEnum.eUserBasicDetails.Religion, UserLoginInstance.LoggedInUser.Religion);
             m_UserDetails.Add(GeneralEnum.eUserBasicDetails.Email, UserLoginInstance.LoggedInUser.Email);
-            m_UserDetails.Add(GeneralEnum.eUserBasicDetails.PostMessage, UserLoginInstance.LoggedInUser.Posts[0].Message);
-            return m_UserDetails;
+            if (UserLoginInstance.LoggedInUser.Posts.Count > 0)
+            {
+                m_UserDetails.Add(GeneralEnum.eUserBasicDetails.PostMessage, UserLoginInstance.LoggedInUser.Posts[0].Message);
+            }
+                return m_UserDetails;
         }
 
-        public string InitializeFaceBookLogin()
+        public string InitializeFaceBookLogin(string i_AppId)
         {
             string result = string.Empty;
-            UserLoginInstance.Instance.initializeFaceBookLoginPermissions();
+            UserLoginInstance.Instance.initializeFaceBookLoginPermissions(i_AppId);
             if (UserLoginInstance.LoggedInUser != null && UserLoginInstance.LoggedInUser.Id != null)
             {
                 result = "";

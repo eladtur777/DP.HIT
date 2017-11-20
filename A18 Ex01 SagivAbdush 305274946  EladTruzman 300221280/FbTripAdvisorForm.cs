@@ -49,7 +49,7 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280
                 int i = 0;
                 this.dataGridViewLocationsFriends.Rows.Clear();
                 PictureBox Pb;
-                if (m_FriendsPlaces.Count > 0)
+                if (m_FriendsPlaces.Count > 0 && m_FriendsPlaces != null)
                 {
                     foreach (var key in m_FriendsPlaces.Keys)
                     {
@@ -84,30 +84,40 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280
             int row = e.RowIndex;
             Dictionary<int, FriendPosts> m_FriendPostsList = new Dictionary<int, FriendPosts>(50);
             m_FriendPostsList = tripAdvisorWF.FriendPostsList();
-
+            dataGridViewFriendsComments.Rows.Clear();
             if (m_FriendPostsList.Count > 0)
             {
-                if (m_FriendPostsList[row].Message != null)
+               int likedCount =  m_FriendPostsList[row].LikedBy.Count;
+                if (likedCount > 0)
+                {
+                    label6.Text = string.Format("Liked By {0} FaceBook Users" , likedCount);
+                }
+
+                if (!string.IsNullOrEmpty(m_FriendPostsList[row].Message))
                 {
                     label2.Text = m_FriendPostsList[row].Message;
+                    label2.Visible = true;
                 }
-
-                if (m_FriendPostsList[row].Place != null)
+           
+                if (!string.IsNullOrEmpty(m_FriendPostsList[row].Place))
                 {
                     label3.Text = m_FriendPostsList[row].Place;
+                    label3.Visible = true;
                 }
 
-                if (m_FriendPostsList[row].PostDescription != null)
+                if (!string.IsNullOrEmpty(m_FriendPostsList[row].PostDescription))
                 {
                     label4.Text = m_FriendPostsList[row].PostDescription;
+                    label4.Visible = true;
                 }
 
                 if (m_FriendPostsList[row].PostedDateTime != null)
                 {
                     label5.Text = m_FriendPostsList[row].PostedDateTime.ToShortDateString();
+                    label5.Visible = true;
                 }
 
-                if (m_FriendPostsList[row].PictureUrl != null)
+                if (!string.IsNullOrEmpty(m_FriendPostsList[row].PictureUrl))
                 {
                     pictureBox3.Load(m_FriendPostsList[row].PictureUrl);
                 }
@@ -120,10 +130,7 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280
                         {
                             Label lb = new Label();
                             lb.Text = m_FriendPostsList[row].FriendComments[i].Message.ToString();
-
-                            DataGridViewRow newRowToAdd = (DataGridViewRow)dataGridViewFriendsComments.Rows[0].Clone();
-                            newRowToAdd.Cells[0].Value = lb.Text;
-                            dataGridViewFriendsComments.Rows.Add(newRowToAdd);
+                            this.dataGridViewFriendsComments.Rows.Insert(i, lb.Text);
                         }
                     }
                 }
@@ -140,7 +147,7 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280
                 int i = 0;
                 this.dataGridViewLocationsFriends.Rows.Clear();
                 PictureBox Pb;
-                if (m_FriendsPlaces.Count > 0)
+                if (m_FriendsPlaces.Count > 0 && m_FriendsPlaces != null)
                 {
                     foreach (var key in m_FriendsPlaces.Keys)
                     {

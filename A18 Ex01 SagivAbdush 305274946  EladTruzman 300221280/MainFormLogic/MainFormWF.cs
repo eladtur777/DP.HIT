@@ -44,9 +44,9 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280.MainFormLogic
             //FacebookService.Logout(className.i_FunctionName);
         }
 
-        public string InitializeFaceBookLogin()
+        public string InitializeFaceBookLogin(string i_AppId)
         {
-            return MainFormDAL.InitializeFaceBookLogin();
+            return MainFormDAL.InitializeFaceBookLogin(i_AppId);
         }
 
         public string PublishPost(string i_PostToPublish)
