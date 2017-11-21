@@ -9,7 +9,6 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280.FbTripAdvisorLog
 {
    public class FriendPosts
     {
-
         private string m_FriendId;
         private string m_PictureUrl;
         private string m_PostDescription;
@@ -31,7 +30,6 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280.FbTripAdvisorLog
             m_FriendComments = new FacebookObjectCollection<Comment>();
             m_LikedBy = new FacebookObjectCollection<User>();
         }
-
 
         public FacebookObjectCollection<Comment> FriendComments { get { return m_FriendComments; } set { m_FriendComments = value; } }
         public DateTime PostedDateTime { get { return m_PostedDateTime; } set { m_PostedDateTime = value; } }

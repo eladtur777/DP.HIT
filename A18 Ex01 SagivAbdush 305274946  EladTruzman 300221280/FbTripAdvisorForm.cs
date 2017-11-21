@@ -87,7 +87,7 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280
         private void dataGridViewLocationsFriends_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             int row = e.RowIndex;
-            Dictionary<int, FriendPosts> m_FriendPostsList = new Dictionary<int, FriendPosts>(50);
+            Dictionary<int, FriendPost> m_FriendPostsList = new Dictionary<int, FriendPost>(50);
             m_FriendPostsList = tripAdvisorWF.FriendPostsList();
             dataGridViewFriendsComments.Rows.Clear();
             if (m_FriendPostsList.Count > 0)
@@ -122,9 +122,9 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280
                     label5.Visible = true;
                 }
 
-                if (!string.IsNullOrEmpty(m_FriendPostsList[row].PictureUrl))
+                if (!string.IsNullOrEmpty(m_FriendPostsList[row].FriendImageURL))
                 {
-                    pictureBox3.Load(m_FriendPostsList[row].PictureUrl);
+                    pictureBox3.Load(m_FriendPostsList[row].FriendImageURL);
                 }
 
                 if (m_FriendPostsList[row].FriendComments.Count > 0)

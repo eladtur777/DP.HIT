@@ -60,8 +60,7 @@
     </Compile>
     <Compile Include="FbClipSearchLogic\ClipSearchDAL.cs" />
     <Compile Include="FbClipSearchLogic\ClipSearchWF.cs" />
-    <Compile Include="FbClipSearchLogic\FriendPostsClipSearch.cs" />
-    <Compile Include="FriendPosts.cs" />
+    <Compile Include="FriendPost.cs" />
     <Compile Include="GoogleMapLogic\GoogleMapHttpRequest.cs" />
     <Compile Include="GoogleMapLogic\Prediction.cs" />
     <Compile Include="GoogleMapLogic\RootObject.cs" />

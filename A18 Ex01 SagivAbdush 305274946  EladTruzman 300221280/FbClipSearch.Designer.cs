@@ -1,6 +1,6 @@
 ﻿namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280
 {
-    partial class FbClipSearch
+    public partial class FbClipSearch
     {
         /// <summary>
         /// Required designer variable.
@@ -17,6 +17,7 @@
             {
                 components.Dispose();
             }
+
             base.Dispose(disposing);
         }
 

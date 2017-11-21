@@ -47,8 +47,8 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280
         private void loadUserDetailsLabelsToScreen()
         {
             m_UserBasicDetails = m_MainFormWF.GetUserBasicDetails();
-            //string name = Enum.GetName(typeof(GeneralEnum.eUserBasicDetails),
-            //GeneralEnum.eUserBasicDetails.UserImage);
+            ////string name = Enum.GetName(typeof(GeneralEnum.eUserBasicDetails),
+            ////GeneralEnum.eUserBasicDetails.UserImage);
 
             foreach (var key in m_UserBasicDetails.Keys)
             {
@@ -260,12 +260,11 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280
             backgroundWorker.DoWork -= new DoWorkEventHandler(backgroundWorker_DoWork);
             backgroundWorker.ProgressChanged -= new ProgressChangedEventHandler(backgroundWorker_ProgressChanged);
 
-            for (int i = 0; i < 100 ; i++)
+            for (int i = 0; i < 100; i++)
             {
                 backgroundWorker.ReportProgress(i);
                 Thread.Sleep(10);
             }
-
         }
 
         private void backgroundWorker_ProgressChanged(object sender, ProgressChangedEventArgs e)
@@ -278,7 +277,6 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280
             {
                 progressBar.Value = 0;
             }
-
         }
 
         private void backgroundWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)

@@ -12,7 +12,7 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280.FbTripAdvisorLog
             return TripAdvisorDAL.FriendsPlacesBySpecificLocation(i_LocationList);
         }
 
-        public Dictionary<int, FriendPosts> FriendPostsList()
+        public Dictionary<int, FriendPost> FriendPostsList()
         {
             return TripAdvisorDAL.FriendPostsList;
         }

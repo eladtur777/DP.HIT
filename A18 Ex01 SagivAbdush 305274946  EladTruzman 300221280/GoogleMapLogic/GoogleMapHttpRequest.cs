@@ -1,7 +1,7 @@
-﻿using Newtonsoft.Json;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Net;
+using Newtonsoft.Json;
 
 namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280.GoogleMapLogic
 {

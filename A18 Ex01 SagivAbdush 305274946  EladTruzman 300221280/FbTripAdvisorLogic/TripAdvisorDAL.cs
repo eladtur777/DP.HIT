@@ -9,10 +9,10 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280.FbTripAdvisorLog
 {
     public class TripAdvisorDAL
     {
-        private FriendPosts FriendPostsToFill;
+        private FriendPost FriendPostsToFill;
         private List<PictureBox> m_FriendsImageList = new List<PictureBox>();
         private List<Point> points = new List<Point>();
-        private Dictionary<int, FriendPosts> m_FriendPostsList = new Dictionary<int, FriendPosts>(50);
+        private Dictionary<int, FriendPost> m_FriendPostsList = new Dictionary<int, FriendPost>(50);
         private PictureBox m_SingleImage = new PictureBox();
         private Dictionary<int, Image> m_FriendsPhotosTaggedIn = new Dictionary<int, Image>();
         private Dictionary<string, Image> m_FriendsPlacesPictures;
@@ -27,7 +27,7 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280.FbTripAdvisorLog
             get { return m_FriendsPhotosTaggedIn; }
         }
 
-        public Dictionary<int, FriendPosts> FriendPostsList
+        public Dictionary<int, FriendPost> FriendPostsList
         {
             get { return m_FriendPostsList; }
         }
@@ -64,13 +64,13 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280.FbTripAdvisorLog
                                         isAllreadyIn = false;
                                         ////Fill friends profile image list 
                                         m_FriendsPlacesPictures.Add(friends[i].Name, friends[i].ImageSquare);
-                                        FriendPostsToFill = new FriendPosts();
+                                        FriendPostsToFill = new FriendPost();
                                         FriendPostsToFill.FriendId = friends[i].Id;
                                         FriendPostsToFill.FriendComments = friendsPost[j].Comments;
                                         FriendPostsToFill.LikedBy = friendsPost[j].LikedBy;
                                         FriendPostsToFill.Message = friendsPost[j].Message;
                                         FriendPostsToFill.Name = friendsPost[j].Name;
-                                        FriendPostsToFill.PictureUrl = friendsPost[j].PictureURL;
+                                        FriendPostsToFill.FriendImageURL = friendsPost[j].PictureURL;
                                         FriendPostsToFill.Place = friendsPost[j].Place.Name;
                                         FriendPostsToFill.PostDescription = friendsPost[j].Description;
                                         FriendPostsToFill.PostedDateTime = friendsPost[j].CreatedTime.Value;
