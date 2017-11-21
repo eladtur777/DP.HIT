@@ -10,7 +10,7 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280
 {
     public sealed class UserLoginInstance
     {
-        private static volatile object sr_ObjectForCriticalSection = new object();
+        private static volatile object m_ObjectForCriticalSection = new object();
         private static UserLoginInstance m_Instance;
         private static User m_LoggedInUser;
         private string m_ErrorMessageResult = string.Empty;
@@ -51,7 +51,7 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280
             {
                 if (m_Instance == null)
                 {
-                    lock (sr_ObjectForCriticalSection)
+                    lock (m_ObjectForCriticalSection)
                     {
                         if (m_Instance == null)
                         {

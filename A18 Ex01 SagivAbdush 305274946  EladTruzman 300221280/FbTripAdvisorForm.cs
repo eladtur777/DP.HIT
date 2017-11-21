@@ -15,12 +15,12 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280
         public FbTripAdvisorForm()
         {
             InitializeComponent();
-            FetchAppSetting();          
+            fetchAppSetting();          
             m_FriendsPlaces = new Dictionary<string, Image>();
             tripAdvisorWF = new TripAdvisorWF();
         }
       
-        private void FetchAppSetting()
+        private void fetchAppSetting()
         {
             FacebookWrapper.FacebookService.s_CollectionLimit = 50;
             this.txtBoxSearch.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
@@ -40,6 +40,11 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
+        {
+            searchWithGoogleMap();           
+        }
+
+        private void searchWithGoogleMap()
         {
             if (comboBoxSearchResults.SelectedValue != null)
             {
@@ -139,6 +144,11 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280
 
         private void btnFreeText_Click(object sender, EventArgs e)
         {
+            searchWithFreeText();          
+        }
+
+        private void searchWithFreeText()
+        {
             if (!string.IsNullOrEmpty(txtBoxFreeText.Text))
             {
                 LocationSearch locationSearch = new LocationSearch();
@@ -179,10 +189,10 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280
         private void checkBoxSearchFromList_CheckedChanged(object sender, EventArgs e)
         {
             checkBoxFreeTextSearch.Checked = !checkBoxSearchFromList.Checked;
-            SetChkBoxFormAttributes(GeneralEnum.eFbTripAdvisorAttributesSetting.SearchFromList);
+            setChkBoxFormAttributes(GeneralEnum.eFbTripAdvisorAttributesSetting.SearchFromList);
         }
 
-        private void SetChkBoxFormAttributes(GeneralEnum.eFbTripAdvisorAttributesSetting i_ChkBoxNameToEnable)
+        private void setChkBoxFormAttributes(GeneralEnum.eFbTripAdvisorAttributesSetting i_ChkBoxNameToEnable)
         {
             switch (i_ChkBoxNameToEnable)
             {
@@ -209,7 +219,7 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280
         private void checkBoxFreeTextSearch_CheckedChanged(object sender, EventArgs e)
         {
             checkBoxSearchFromList.Checked = !checkBoxFreeTextSearch.Checked;
-            SetChkBoxFormAttributes(GeneralEnum.eFbTripAdvisorAttributesSetting.SearchFromFreeTExt);
+            setChkBoxFormAttributes(GeneralEnum.eFbTripAdvisorAttributesSetting.SearchFromFreeTExt);
         }
     }
 }

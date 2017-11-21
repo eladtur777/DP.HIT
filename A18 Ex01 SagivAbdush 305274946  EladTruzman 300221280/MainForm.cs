@@ -10,13 +10,13 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280
 {
     public partial class MainForm : Form
     {
-        private MainFormWF MainFormWF;
+        private MainFormWF m_MainFormWF;
         private Dictionary<GeneralEnum.eUserBasicDetails, string> m_UserBasicDetails;
         
         public MainForm()
         {
             InitializeComponent();
-            MainFormWF = new MainFormWF();
+            m_MainFormWF = new MainFormWF();
             m_UserBasicDetails = new Dictionary<GeneralEnum.eUserBasicDetails, string>();
             FacebookService.s_CollectionLimit = 50;
             chooseAppId();            
@@ -33,22 +33,22 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280
 
         private void fillTabs()
         {
-            dataGridViewMusic.DataSource = MainFormWF.GetUserMusic();
+            dataGridViewMusic.DataSource = m_MainFormWF.GetUserMusic();
             for (int i = 7; i < dataGridViewMusic.Columns.Count; i++)
             {
                 dataGridViewMusic.Columns[i].Visible = false;
             }
 
-            dataGridViewBooks.DataSource = MainFormWF.GetUserBooks();          
-            dataGridViewMovies.DataSource = MainFormWF.GetUserMovies();
-            dataGridViewFriends.DataSource = MainFormWF.GetUserFriends();
+            dataGridViewBooks.DataSource = m_MainFormWF.GetUserBooks();          
+            dataGridViewMovies.DataSource = m_MainFormWF.GetUserMovies();
+            dataGridViewFriends.DataSource = m_MainFormWF.GetUserFriends();
         }
 
         private void loadUserDetailsLabelsToScreen()
         {
-            m_UserBasicDetails = MainFormWF.GetUserBasicDetails();
-            string name = Enum.GetName(typeof(GeneralEnum.eUserBasicDetails),
-            GeneralEnum.eUserBasicDetails.UserImage);
+            m_UserBasicDetails = m_MainFormWF.GetUserBasicDetails();
+            //string name = Enum.GetName(typeof(GeneralEnum.eUserBasicDetails),
+            //GeneralEnum.eUserBasicDetails.UserImage);
 
             foreach (var key in m_UserBasicDetails.Keys)
             {
@@ -115,11 +115,16 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280
         }
 
         private void loginBtn_Click(object sender, EventArgs e)
-        {       
+        {
+            login();
+        }
+
+        private void login()
+        {
             if (!string.IsNullOrEmpty(comboBoxAppID.SelectedText))
             {
                 RunProgressBar();
-                string result = MainFormWF.InitializeFaceBookLogin(comboBoxAppID.SelectedText);
+                string result = m_MainFormWF.InitializeFaceBookLogin(comboBoxAppID.SelectedText);
                 if (string.IsNullOrEmpty(result))
                 {
                     loadUserDetailsLabelsToScreen();
@@ -131,7 +136,7 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280
                 }
             }
             else
-            {             
+            {
                 MessageBox.Show("Please select App Id");
                 loginBtn.Enabled = true;
             }
@@ -171,9 +176,14 @@ namespace A18_Ex01_SagivAbdush_305274946__EladTruzman_300221280
 
         private void btnPostPublish_Click(object sender, EventArgs e)
         {
+            publishPost();        
+        }
+
+        private void publishPost()
+        {
             if (textBoxPostPublish.Text != string.Empty)
             {
-                string result = MainFormWF.PublishPost(textBoxPostPublish.Text);
+                string result = m_MainFormWF.PublishPost(textBoxPostPublish.Text);
                 if (string.IsNullOrEmpty(result))
                 {
                     MessageBox.Show("successfully Posted to your wall on FaceBook");
